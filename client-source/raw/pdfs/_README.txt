@@ -1,2 +1,2 @@
-Drop incoming client PDFs here (company profiles, branch docs).
-Then tell me and I'll extract + fold them into ../SOURCE-OF-TRUTH.md.
+Incoming client PDFs (head-office company profiles, branch-tailored).
+Extracted into ../../SOURCE-OF-TRUTH.md. 3 more expected.

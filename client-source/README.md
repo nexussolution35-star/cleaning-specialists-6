@@ -9,10 +9,11 @@ content of the new site (services, branches, contact details, service areas, red
 client-source/
 ├── README.md                ← this file (index + intake log)
 ├── SOURCE-OF-TRUTH.md       ← consolidated, structured client intel (read this first)
+├── extracted/               ← plain-text extraction of each PDF (searchable)
 └── raw/                     ← original supplied files, preserved as-is
     ├── current-site_cleaningspecialist.co.za.zip   ← client's CURRENT live site (being replaced)
     ├── TCS_List_of_services.xlsx                    ← authoritative services list
-    └── pdfs/                 ← drop incoming PDFs here (company profiles, branch docs)
+    └── pdfs/                 ← original head-office segment brochures (PDF)
 ```
 
 ## Intake log
@@ -20,7 +21,8 @@ client-source/
 |---|---|---|
 | 2026-06-25 | `current-site_…zip` (22-page export + screenshots + `_routes.json`) | ✅ stored + extracted into SOURCE-OF-TRUTH.md |
 | 2026-06-25 | `TCS_List_of_services.xlsx` | ✅ stored + extracted into SOURCE-OF-TRUTH.md |
-| — | Head-office company-profile PDFs (branch-tailored), ~5–6 expected | ⏳ awaiting upload → `raw/pdfs/` |
+| 2026-06-25 | Head-office segment brochures ×5 (Office Health, Hospitality, Managed Properties, Window/Common Areas, Bed Bugs/Mattress/Upholstery) | ✅ stored in `raw/pdfs/`, text in `extracted/`, summarised in SOURCE-OF-TRUTH §6 |
+| — | Remaining brochures (~3 more) | ⏳ awaiting upload → `raw/pdfs/` |
 
 ## How to use this
 1. **Building/editing content?** Pull facts from `SOURCE-OF-TRUTH.md`, not from memory.

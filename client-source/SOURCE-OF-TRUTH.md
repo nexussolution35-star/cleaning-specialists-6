@@ -150,7 +150,85 @@ Arbor | Argent | Belfast | Bethel | Bettiesdam | Bothleng | Breyten | Bronkhorst
 - "The Specialists are industry leaders in providing environmentally high standards of
   professionalism and performance…"
 
-## 6. Open questions for later (not blocking)
+## 6. Head-office segment brochures (PDFs)
+
+Source: head-office "The Specialists" segment one-pagers (2016 series), supplied by the
+client and permitted for branch use. National helpline **0860 08 08 08**, info@thespecialists.co.za,
+www.thespecialists.co.za. Full text in `extracted/*.txt`; raw PDFs in `raw/pdfs/`.
+**5 of ~8 received** (3 more expected). These are gold for service-page copy, stats and
+proof points — to be re-skinned in our design, with branch contacts swapping in.
+
+### 6a. Cleaning for Business Health (office segment)
+- **Proof stats:** 94% of visitors would avoid a business after encountering a dirty restroom ·
+  R12bn/yr production loss from absenteeism (SA economy) · "We clean for health, not just appearance."
+- **Office hotspots for dirt/dust/bacteria:** washroom ablutions, kitchen & eating areas,
+  carpets & waste disposal, storage, office equipment, external areas.
+- **Areas cleaned** — *Office:* carpets, hard flooring, soft furnishings, all horizontal/vertical
+  surfaces, glass/windows/skylights/waste bins. *Washrooms:* all surfaces, urinals, toilets,
+  basins, feminine-hygiene bins, showers. *Kitchen/eating:* surfaces, utensils, appliances,
+  canopies, fat traps, waste bins. *External:* waste-disposal areas, parking/courtyards,
+  undercover parking, garden surfaces (weeds, grass).
+- **Specialised:** deep cleaning of ablutions & kitchens, carpets, computers & office equipment,
+  ceilings & air vents.
+- **Benefits angle:** fewer slips/trips, better tool/inventory control, reduced property damage,
+  decreased fire hazards, eco-friendly products, "improved morale = improved productivity."
+
+### 6b. Hospitality Industry Cleaning
+- **Proof stats:** 9/10 wouldn't return to a hotel/guest house they perceived as dirty ·
+  10g dead skin shed/week · 200× more faecal bacteria on avg cutting board than a toilet seat ·
+  microbes float ~2 weeks after flushing · 90% more dust on carpets than floorboards ·
+  up to 10 million mites in a mattress.
+- **Facility types:** Hotels · Guest Houses · B&Bs · Lodges · Conference Centres · Casinos ·
+  Golf Clubs · Country Clubs · Event Venues · Restaurants & Pubs.
+- **Areas:** rooms & bathrooms, kitchen, F&B serving areas, gym, swimming pool & spa,
+  lounge areas, public restrooms, external areas.
+- **Services:** basic housekeeping (surfaces, bins, glass, beds/linen, floors/carpets, dusting,
+  in-stay restroom cleaning, restocking) · kitchen & food-service cleaning (sanitising,
+  stoves/fryers/grills/ovens, floors, under-cooker mopping) · restroom cleaning & sanitation ·
+  kitchen deep cleaning (canopy, fat traps, biological dosing) · ablution deep cleaning
+  (tile/grout, mould/mildew) · plus mattress, upholstery, carpet, window, office, spa, high-level.
+
+### 6c. Managed Properties Cleaning
+- **Clients:** realtors · property managers · building contractors · property owners & tenants.
+- **Property types:** apartment · house · holiday home · gated community.
+- **Services:** pre-occupation · post-occupation · end-of-tenancy · post-renovation ·
+  pre/post-event (open houses & showings) · managed holiday homes · common areas in residential
+  estates/apartment blocks/townhouse complexes · cleaning of newly built premises (offices,
+  factories, hotels, hostels, houses) · high-level access & difficult-to-reach areas.
+- **Room-by-room** solutions covered (living room, bedrooms, bathrooms, kitchen & dining, hallway)
+  + **common areas:** lobbies, corridors, canteen, lobby washrooms, stairways, parking/ramps/
+  driveways, laundry rooms, rooftops, elevators, store rooms, security guard houses, waste areas.
+
+### 6d. Window & Common Areas Cleaning
+- **Window:** internal atrium & skylight cleaning · high-level access cleaning (trained/certified
+  teams, strict H&S) · contract cleaning (regular low & high-level, commercial + domestic) ·
+  for office blocks, show rooms, factories, apartment complexes "and anywhere else with glass."
+  Audiences: business owners, managing agents.
+- **Common areas (8-point service):** lobby/corridor floors · vacuum carpets · entrances & glass
+  doors · kitchen surfaces & floors · canteen/communal eating · washroom surfaces + replenish
+  hygiene products · disinfect handrails & stairwell surfaces · elevator floors + disinfect walls
+  & control panels. Coverage list: lobbies, corridors, canteen, lobby washrooms, stairways,
+  parking/ramps/driveways, laundry rooms, rooftops, elevators, store rooms, security guard houses,
+  waste-disposal areas.
+
+### 6e. Pest – Bed Bugs + Mattress & Upholstery Cleaning
+- **Bed bugs:** infestation is unrelated to cleanliness; bed bugs are nocturnal blood-feeding
+  parasites that travel via luggage/belongings/furniture/clothing; need an experienced pest
+  specialist. Early-detection signs in mattress seams, sheets, furniture, behind baseboards,
+  outlet plates, picture frames (black-to-brown stains/mounds).
+- **Mattress (5-step clean):** 1) vacuum dry dust/dead skin/mite excrement · 2) treat to kill
+  viruses/bacteria/mould spores · 3) treat stains (incl. urine) · 4) deodorise/neutralise odour
+  (incl. cigarette smoke) · 5) avoid over-dampening (bed usable within 20 min).
+  Stats: new mattress infested with dust mites in ~6 months · 25% of allergies due to dust mites ·
+  90% of dust mites live in the mattress · 300 dust mites fit on a match head.
+- **Upholstery:** cleaning, spot removal & deodorising of sofas, chairs, cushions, curtains,
+  drapes; handles cotton, wool, polyester, suede, leather, etc.
+- **CTA throughout:** "Contact us for a FREE assessment and quotation."
+
+> Note: brochures carry **head-office** contact (0860 08 08 08 / thespecialists.co.za). On the
+> new branch site these become **Nelspruit/Highveld** contacts (§2); use the copy/stats, swap the numbers.
+
+## 7. Open questions for later (not blocking)
 - Confirm whether the new site preserves the exact 22 paths or 301-maps them.
 - Confirm primary public phone/email to surface site-wide vs per-branch.
 - Confirm whether all three "geographies" (Nelspruit, Highveld, Mbombela-Emalahleni) become
