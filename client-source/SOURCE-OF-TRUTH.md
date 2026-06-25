@@ -63,8 +63,11 @@ path or 301 to the closest new equivalent). Path = the part after the domain.
 *(Naming: "Nelspruit" = Mbombela; "Highveld" branch covers the Emalahleni/Witbank–Middelburg
 region; "mbombela-emalahleni" pages target both metros for specific service types.)*
 
-> **Decision still open:** whether our new site keeps these exact paths or 301s them to a
-> cleaner structure. Either way the list above is the checklist — nothing here may 404.
+> **Implemented (2026-06-25):** the new site **keeps all 22 paths verbatim** as real pages
+> (`<slug>/index.html`, trailing-slash URLs), each carrying its **original `<title>` + meta
+> description**. Two wrong-area meta typos were corrected: pre-occupational-cleaning-nelspruit
+> ("Amanzimtoti" → Nelspruit) and pre-occupational-cleaning-highveld ("Sandton" → Middelburg &
+> Witbank). All other titles/metas verbatim. Nothing in this list 404s.
 
 ## 2. Branches & contact details
 
