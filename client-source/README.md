@@ -21,8 +21,9 @@ client-source/
 |---|---|---|
 | 2026-06-25 | `current-site_…zip` (22-page export + screenshots + `_routes.json`) | ✅ stored + extracted into SOURCE-OF-TRUTH.md |
 | 2026-06-25 | `TCS_List_of_services.xlsx` | ✅ stored + extracted into SOURCE-OF-TRUTH.md |
-| 2026-06-25 | Head-office segment brochures ×5 (Office Health, Hospitality, Managed Properties, Window/Common Areas, Bed Bugs/Mattress/Upholstery) | ✅ stored in `raw/pdfs/`, text in `extracted/`, summarised in SOURCE-OF-TRUTH §6 |
-| — | Remaining brochures (~3 more) | ⏳ awaiting upload → `raw/pdfs/` |
+| 2026-06-25 | Head-office segment brochures ×5 (Office Health, Hospitality, Managed Properties, Window/Common Areas, Bed Bugs/Mattress/Upholstery) | ✅ stored in `raw/pdfs/`, text in `extracted/`, summarised in SOURCE-OF-TRUTH §6a–6e |
+| 2026-06-25 | Final 3 (Kitchen Canopies, Solar Panel Cleaning, **TSFG Services Overview Jan 2026**) | ✅ stored; §6f–6h. *Services Overview is image-based — read visually, page renders not committed.* |
+| | **All 8 PDFs received — intake complete.** | ✅ |
 
 ## How to use this
 1. **Building/editing content?** Pull facts from `SOURCE-OF-TRUTH.md`, not from memory.

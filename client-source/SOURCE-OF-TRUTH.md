@@ -225,8 +225,76 @@ proof points — to be re-skinned in our design, with branch contacts swapping i
   drapes; handles cotton, wool, polyester, suede, leather, etc.
 - **CTA throughout:** "Contact us for a FREE assessment and quotation."
 
-> Note: brochures carry **head-office** contact (0860 08 08 08 / thespecialists.co.za). On the
-> new branch site these become **Nelspruit/Highveld** contacts (§2); use the copy/stats, swap the numbers.
+### 6f. Kitchen Canopies + Kitchen Deep Clean
+- **Canopy cleaning:** canopy absorbs smoke, fat, oils, carbon-monoxide gases, odours & chemical
+  particles. Cleaned "inside out" to ensure effectiveness & appearance over time; removes CO and
+  grease to **OHS-standard** levels; prevents fat build-up/blocked inlets (efficiency loss + fire
+  risk); ensures combustion air & comfortable air movement; **certificate issued on completion**
+  for compliance.
+- **Kitchen deep clean (8-step):** isolate electrics & cover switches → dismantle/clean/sanitise/
+  re-assemble equipment → pull out equipment to clean behind/beneath → mechanical + chemical clean
+  (green option) → steam-clean walls & ceilings → sanitise cooking/prep areas → scrub floors
+  (scrubber, steam, wet-dry vac) → re-inspect skirtings/corners/pipework/legs/wheels, clear debris.
+- **Covers:** kitchen structure (ceilings, vents, walls, floors), ovens (gas/electric), deep-fat
+  fryers, canopies, filters, fat traps, griddle/grills/char-grills, hot/cold prep areas,
+  walk-in fridges, standard fridges/freezers, catering equipment.
+
+### 6g. Solar Panel Cleaning (current flyer)
+- **Benefits:** improve energy efficiency · prevent corrosion & damage · reduce maintenance cost ·
+  maximise return on investment.
+- **Commercial:** larger/more complex arrays → use professionals (expertise, equipment, safety
+  protocols) to clean without damage and protect energy production/ROI.
+- **Domestic:** dust, dirt, bird droppings & debris block sunlight and cut output; regular cleaning
+  keeps panels at max capacity, prolongs lifespan, maximises savings.
+- Carries the current brand line "Protecting our customers' Health, Food and Property since 1978" +
+  0860 08 08 08 / info@thespecialists.co.za.
+
+### 6h. ⭐ TSFG Services Overview — Jan 2026 (most current full catalog)
+*Image-based PDF (no text layer); read visually. This is the authoritative, up-to-date group
+services catalog (The Specialists Franchise Group = "TSFG").*
+
+- **Group tagline:** *"A Pest-free & Hygienically Clean environment makes Bottom line Sense."* /
+  *"Protecting our customers' Health, Food and Property since 1978."*
+- **Trust pillars (cover):** Trusted & Recommended Since **1978** · **70 Owner-Managed Branches** ·
+  Uncompromising Quality · Exceed Industry Standards · Fully Trained Specialists Staff ·
+  For People and Planet FIRST.
+- **Head-office contact (on this doc):** 263A West Avenue, Die Hoewes, Centurion, Gauteng, 0157 ·
+  National Support Line 0860 08 08 08 · Tel +27 12 660 1550 · info@tsfg.co.za · www.thespecialists.co.za.
+- **Proud members of:** **FASA** (Franchise Association of SA) · **SAPCA** (SA Pest Control Assoc.) ·
+  **NCCA** (National Contract Cleaners Assoc.).
+- **Client segments (icons):** Office/Workplace · Hospitality · Healthcare · Property · Industrial ·
+  Specialised · Domestic.
+
+**Our Solutions (three pillars):**
+
+1. **Commercial, Domestic & Industrial Pest Control** *(head-office offers this; the client is the
+   "Cleaning" brand — include only if in branch scope)*
+   - *Integrated Pest Management for:* Rodents · Crawling Insects · Flying Insects · Ants · Bed Bugs ·
+     Fleas · Termites · Garden Pests.
+   - *Specialised Pest Control & Prevention:* Fumigation and ISPM-15 Services · Bird Proofing ·
+     Stored Product Insects · Vegetation Management & Weed Control · HACCP & Food Safety Audited Pest
+     Control · Wood Borer Inspection & Treatments · Relocation of Snakes & Other Urban Wildlife ·
+     Antimicrobial Fogging & Disinfection Services.
+
+2. **Commercial, Domestic & Industrial Cleaning & Hygiene → Specialised Cleaning of:**
+   Ablution · Food Preparation Areas · Upholstery · Carpets (5-Step Process) · Mattresses · Windows ·
+   Solar Panels · Ceilings · Canopy & Cooker Hoods · Grease Traps · Pre & Post-Occupation ·
+   Student Accommodation · Post-Construction · Holiday Homes · General Surfaces · **Also offer
+   Sanitisation Services.**
+
+3. **Washroom Hygiene — Inspect | Install | Service:**
+   - *Feminine Hygiene:* Sanitary Bins · Sanitary Waste Disposal.
+   - *Hand Hygiene:* Soap Dispensers · Hand Sanitisers · Paper-towel Dispensers.
+   - *Toilet Hygiene:* Toilet Seat Sanitisers · Toilet Roll Holders & Toilet Paper ·
+     Urinal & Toilet In-line Sanitisers · Urinal Mats.
+   - *Kitchen Hygiene:* Kitchen Floor Mats · Kitchen Deep Cleaning · Biological Dosing.
+   - *Air-Care:* Air Fresheners & Air Dryers.
+
+> **This Jan-2026 catalog supersedes the 2016 brochures (§6a–6g) where they differ** — use it as the
+> canonical service taxonomy for the client (it aligns with, and slightly extends, the xlsx in §3).
+
+> Note: brochures carry **head-office** contact (0860 08 08 08 / tsfg.co.za / thespecialists.co.za).
+> On the new branch site these become **Nelspruit/Highveld** contacts (§2); use the copy/stats, swap the numbers.
 
 ## 7. Open questions for later (not blocking)
 - Confirm whether the new site preserves the exact 22 paths or 301-maps them.
