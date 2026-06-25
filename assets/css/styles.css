@@ -72,8 +72,10 @@ ul{margin:0;padding:0}
 .eyebrow{
   font-family:'Montserrat',Helvetica,Arial,Lucida,sans-serif;
   font-weight:700;text-transform:uppercase;letter-spacing:1px;
-  font-size:15px;color:var(--green-bright);margin-bottom:.4em;display:block;
+  font-size:14px;color:var(--green);margin-bottom:.4em;display:block;
 }
+/* on dark panels the eyebrow uses the brighter green for contrast */
+.text-white .eyebrow,.cta-panel .eyebrow,.panel-dark .eyebrow,.offers-row .eyebrow{color:var(--green-bright)}
 .section-center{text-align:center}
 .lead{font-size:18px}
 .text-white,.text-white h1,.text-white h2,.text-white h3,.text-white h4,.text-white p{color:#fff}
@@ -82,22 +84,33 @@ ul{margin:0;padding:0}
    BUTTONS — pill CTAs (Poppins 600 / 13px / uppercase / 72px)
    ============================================================ */
 .btn{
-  display:inline-block;cursor:pointer;border:0;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4em;
+  cursor:pointer;border:2px solid transparent;box-sizing:border-box;
   font-family:'Poppins',Helvetica,Arial,Lucida,sans-serif;
-  font-weight:600;font-size:13px;text-transform:uppercase;
-  border-radius:var(--r-pill);line-height:1;
-  padding:12px 30px;transition:var(--t-btn);text-align:center;
+  font-weight:600;font-size:13px;letter-spacing:.3px;text-transform:uppercase;
+  border-radius:var(--r-pill);line-height:1;text-decoration:none;
+  padding:13px 28px;transition:var(--t-btn);text-align:center;white-space:nowrap;
 }
-.btn-green{background:var(--green);color:#fff !important;border:2px solid var(--green)}
+.btn:hover,.btn:focus{text-decoration:none}
+.btn:active{transform:translateY(1px)}
+/* solid green -> fills navy on hover (Website B button_2 behaviour) */
+.btn-green{background:var(--green);color:#fff !important;border-color:var(--green)}
 .btn-green:hover{background:var(--navy);border-color:var(--navy);color:#fff !important}
-.btn-blue{background:var(--blue);color:#fff !important;letter-spacing:2px;border:2px solid var(--blue)}
+/* solid blue -> fills darker green on hover (button_3 behaviour), spaced caps */
+.btn-blue{background:var(--blue);color:#fff !important;letter-spacing:2px;border-color:var(--blue)}
 .btn-blue:hover{background:var(--green-hover);border-color:var(--green-hover);color:#fff !important}
-.btn-navy{background:var(--navy);color:#fff !important;border:1px solid #fff}
+/* navy fill, readable on any background */
+.btn-navy{background:var(--navy);color:#fff !important;border-color:var(--navy)}
 .btn-navy:hover{background:var(--blue);border-color:var(--blue);color:#fff !important}
-.btn-ghost{background:transparent;color:#fff !important;border:2px solid #fff}
-.btn-ghost:hover{background:#fff;color:var(--navy) !important}
-.btn-arrow::after{content:" \2192";font-weight:600}
-.btn-lg{padding:14px 38px;font-size:14px}
+/* ghost: white outline on dark; fills white on hover */
+.btn-ghost{background:transparent;color:#fff !important;border-color:rgba(255,255,255,.85)}
+.btn-ghost:hover{background:#fff;color:var(--navy) !important;border-color:#fff}
+/* outline: navy outline for light backgrounds */
+.btn-outline{background:transparent;color:var(--navy) !important;border-color:var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff !important}
+.btn-arrow::after{content:"\2192";font-weight:600;transition:transform .3s ease}
+.btn-arrow:hover::after{transform:translateX(3px)}
+.btn-lg{padding:15px 36px;font-size:14px}
 
 /* ============================================================
    HEADER / NAV
@@ -111,15 +124,15 @@ ul{margin:0;padding:0}
 
 .mainheader{position:sticky;top:0;z-index:50;background:var(--navy);box-shadow:0 1px 0 rgba(0,0,0,.1)}
 .mainheader .wrap{max-width:var(--maxw);display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px}
-.mainheader .logo img{height:60px;width:auto}
-.nav{display:flex;align-items:center;gap:4px;list-style:none}
+.mainheader .logo img{height:52px;width:auto}
+.nav{display:flex;align-items:center;gap:0;list-style:none}
 .nav > li{position:relative}
 .nav > li > a{
-  color:rgba(255,255,255,.92);font-size:14px;padding:10px 12px;display:block;
-  font-family:'Open Sans',sans-serif;
+  color:rgba(255,255,255,.9);font-size:13px;padding:10px 13px;display:block;
+  font-family:'Open Sans',sans-serif;letter-spacing:.2px;white-space:nowrap;
 }
 .nav > li > a:hover{color:var(--green-bright)}
-.nav .has-sub > a::after{content:" \25BE";font-size:10px;opacity:.7}
+.nav .has-sub > a::after{content:" \25BE";font-size:9px;opacity:.65;margin-left:2px}
 .subnav{
   position:absolute;top:100%;left:0;min-width:230px;background:var(--navy);
   border-top:3px solid var(--green);box-shadow:0 0 10px rgba(0,0,0,.3);
@@ -130,12 +143,13 @@ ul{margin:0;padding:0}
 .subnav a{color:rgba(255,255,255,.85);font-size:13px;padding:8px 18px;display:block}
 .subnav a:hover{color:var(--green-bright);background:rgba(255,255,255,.04)}
 .nav-cta a{
-  background:var(--green-nav);color:#fff !important;padding:12px 20px;border-radius:50px;
-  font-weight:700;line-height:1;box-shadow:0 4px 10px rgba(103,163,43,.3);
-  transition:all .3s ease-in-out;
+  display:inline-block;background:var(--green-nav);color:#fff !important;padding:11px 20px;border-radius:50px;
+  font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;
+  line-height:1;box-shadow:0 4px 10px rgba(103,163,43,.3);transition:all .3s ease-in-out;white-space:nowrap;
 }
 .nav-cta a:hover{background:var(--green-nav-hover);transform:translateY(-2px);box-shadow:0 6px 15px rgba(103,163,43,.4);color:#fff !important}
-.nav-phone{color:#fff !important;font-weight:700;font-family:'Poppins',sans-serif;padding:10px 12px}
+.nav-phone{color:#fff !important;font-size:13px;font-weight:600;font-family:'Poppins',sans-serif;padding:10px 12px;white-space:nowrap}
+.nav-phone:hover{color:var(--green-bright) !important}
 .hamburger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
 .mobile-menu{display:none;background:var(--navy);border-top:1px solid rgba(255,255,255,.1)}
 .mobile-menu ul{list-style:none}
@@ -145,7 +159,14 @@ ul{margin:0;padding:0}
 /* ============================================================
    HERO — contained 50px rounded panel + gradient over banner
    ============================================================ */
-.hero{padding:50px 0;background:var(--navy)}
+/* homepage hero sits on the white page; only the rounded panel is coloured */
+.hero{padding:48px 0;background:#fff}
+/* subpage page-title header rendered as a contained rounded navy panel */
+.page-hero{width:var(--content);max-width:var(--content-max);margin:28px auto;
+  border-radius:var(--r-section);overflow:hidden;box-shadow:var(--shadow-panel);
+  background:linear-gradient(115deg,#191245 0%,#191245 52%,#0b3f8c 100%);
+  padding:62px 40px !important}
+.page-hero .wrap{max-width:780px}
 .hero-panel{
   position:relative;border-radius:var(--r-section);overflow:hidden;z-index:10;
   box-shadow:var(--shadow-panel);
@@ -184,36 +205,45 @@ ul{margin:0;padding:0}
 textarea.field{min-height:90px;resize:vertical}
 .lead-form .full{grid-column:1/-1}
 
-/* trust badge strip under hero */
-.trust-strip{background:var(--navy);padding:0 0 36px}
+/* trust badge strip under hero — light band, dark chips */
+.trust-strip{background:#fff;padding:10px 0 40px}
 .trust-chips{width:var(--content);max-width:var(--content-max);margin:0 auto;
   display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .trust-chip{
-  border:2px solid rgba(255,255,255,.25);color:#fff;border-radius:var(--r-pill);
+  border:2px solid #e4e4ec;color:var(--heading);border-radius:var(--r-pill);
   padding:10px 22px;font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;
-  text-transform:uppercase;letter-spacing:1px;
+  text-transform:uppercase;letter-spacing:.5px;
 }
-.trust-chip strong{color:var(--green-bright)}
+.trust-chip strong{color:var(--green)}
 
 /* ============================================================
-   Sections on navy / navy-slate
+   Section backgrounds — page is WHITE/LIGHT; navy is reserved
+   for contained rounded panels only (matches Website B).
+   (.bg-navy / .bg-navy-slate kept as class names for the
+    generator but now render light sections.)
    ============================================================ */
-.bg-navy{background:var(--navy);color:#fff}
-.bg-navy h2,.bg-navy h3,.bg-navy h4{color:#fff}
-.bg-navy-slate{background:#15103a;color:#fff}
-.bg-navy-slate h2,.bg-navy-slate h3,.bg-navy-slate h4{color:#fff}
-.bg-light{background:#f5f5f8}
+.bg-navy{background:#ffffff;color:var(--body)}
+.bg-navy-slate{background:#f4f5f7;color:var(--body)}
+.bg-light{background:#f4f5f7}
 
-/* marquee divider */
-.marquee{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:10px 0;
-  font-family:'Poppins',sans-serif;font-weight:700;text-transform:uppercase;font-size:14px;letter-spacing:2px}
-.marquee span{display:inline-block;padding:0 24px;opacity:.9}
+/* contained DARK rounded panel — the one dark accent inside the page body */
+.panel-dark{width:var(--content);max-width:var(--content-max);margin:0 auto;
+  background:linear-gradient(120deg,#191244 0%,#191245 60%,#143a7a 100%);
+  border-radius:var(--r-section);overflow:hidden;box-shadow:var(--shadow-panel);
+  padding:50px 44px;color:#fff}
+.panel-dark h2,.panel-dark h3{color:#fff}
+.panel-dark > .section-center p{color:rgba(255,255,255,.85)}
+
+/* marquee divider — subtle light brand strip, not a blue bar */
+.marquee{background:#f0f1f5;color:var(--navy);overflow:hidden;white-space:nowrap;padding:9px 0;
+  font-family:'Poppins',sans-serif;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:2px}
+.marquee span{display:inline-block;padding:0 22px;opacity:.45}
 
 /* ============================================================
    REVIEWS / testimonials
    ============================================================ */
 .reviews-head{text-align:center;margin-bottom:34px}
-.reviews-score{font-size:34px;color:var(--green-bright)}
+.reviews-score{font-size:34px;color:var(--green)}
 .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testimonial{
   background:#fff;border-radius:var(--r-card);overflow:hidden;padding:28px 26px;
@@ -278,9 +308,9 @@ textarea.field{min-height:90px;resize:vertical}
 .gallery-filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
 .gallery-filters button{
   font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;
-  border:2px solid rgba(255,255,255,.3);background:transparent;color:#fff;border-radius:var(--r-pill);
+  border:2px solid #d9d9e1;background:#fff;color:var(--heading);border-radius:var(--r-pill);
   padding:9px 20px;cursor:pointer;transition:var(--t-btn)}
-.gallery-filters button.active,.gallery-filters button:hover{background:var(--green);border-color:var(--green)}
+.gallery-filters button.active,.gallery-filters button:hover{background:var(--green);border-color:var(--green);color:#fff}
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .gallery-grid .g-item{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);aspect-ratio:4/3;background:#eee}
 .gallery-grid .g-item img{width:100%;height:100%;object-fit:cover;transition:var(--t-main)}
@@ -290,20 +320,26 @@ textarea.field{min-height:90px;resize:vertical}
    PROCESS — 4 steps
    ============================================================ */
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.step{background:rgba(255,255,255,.04);border:2px solid rgba(255,255,255,.12);border-radius:var(--r-card);
-  padding:30px 24px;text-align:center;transition:var(--t-main)}
-.step:hover{border-color:var(--green);transform:translateY(-4px)}
+.step{background:#fff;border:2px solid #ececf1;border-radius:var(--r-card);
+  padding:30px 24px;text-align:center;transition:var(--t-main);box-shadow:var(--shadow-card)}
+.step:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:var(--shadow-hover)}
 .step .s-num{width:54px;height:54px;border-radius:50%;background:var(--green);color:#fff;
   font-family:'Poppins',sans-serif;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
-.step h4{color:#fff;font-size:19px}
-.step p{color:rgba(255,255,255,.8);font-size:14px;line-height:1.7}
-.process-note{text-align:center;margin-top:26px;color:rgba(255,255,255,.85)}
+.step h4{color:var(--heading);font-size:19px}
+.step p{color:var(--body);font-size:14px;line-height:1.7}
+.process-note{text-align:center;margin-top:26px;color:var(--muted)}
+/* inside a dark panel, steps invert */
+.panel-dark .step{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);box-shadow:none}
+.panel-dark .step h4{color:#fff}
+.panel-dark .step p{color:rgba(255,255,255,.8)}
+.panel-dark .process-note{color:rgba(255,255,255,.8)}
 
 /* ============================================================
    OFFERS / financing — contained cards on circles bg
    ============================================================ */
 .offers-row{
-  background-image:url("../images/circles.png");background-size:cover;background-position:center;
+  background-image:linear-gradient(rgba(25,18,69,.88),rgba(20,58,122,.88)),url("../images/circles.png");
+  background-size:cover;background-position:center;
   border-radius:var(--r-cta-row);overflow:hidden;box-shadow:var(--shadow-panel);
   padding:48px 40px;
 }
@@ -342,10 +378,10 @@ textarea.field{min-height:90px;resize:vertical}
 /* ============================================================
    CTA-FORM band (global) — dark panel
    ============================================================ */
-.cta-band{background:var(--navy);padding:60px 0}
+.cta-band{background:#fff;padding:60px 0}
 .cta-panel{
   width:var(--content);max-width:var(--content-max);margin:0 auto;
-  background:var(--navy-panel);border-radius:var(--r-section);overflow:hidden;
+  background:linear-gradient(120deg,#191244 0%,#191245 60%,#143a7a 100%);border-radius:var(--r-section);overflow:hidden;
   box-shadow:var(--shadow-panel);padding:48px 44px;
   display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
 }
@@ -388,14 +424,16 @@ textarea.field{min-height:90px;resize:vertical}
 
 /* local links chips (city/SEO interlinking) */
 .link-chips{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.link-chips a{border:2px solid var(--green);color:#fff !important;border-radius:var(--r-pill);
+.link-chips a{border:2px solid var(--navy);color:var(--navy) !important;border-radius:var(--r-pill);
   padding:10px 22px;font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;transition:var(--t-btn)}
-.link-chips a:hover{background:var(--green)}
+.link-chips a:hover{background:var(--navy);color:#fff !important}
+/* link chips inside a dark panel invert */
+.panel-dark .link-chips a,.text-white .link-chips a{border-color:rgba(255,255,255,.6);color:#fff !important}
+.panel-dark .link-chips a:hover,.text-white .link-chips a:hover{background:#fff;color:var(--navy) !important;border-color:#fff}
 
 /* prose blocks for service/city long-form */
 .prose-blocks{display:grid;gap:30px}
 .prose-block h2{color:var(--heading)}
-.bg-navy .prose-block h2{color:#fff}
 .included-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .included-grid li{list-style:none;display:flex;gap:10px;align-items:flex-start;color:inherit}
 .included-grid li::before{content:"\2714";color:var(--green);font-weight:700}
