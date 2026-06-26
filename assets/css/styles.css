@@ -176,15 +176,20 @@ ul{margin:0;padding:0}
   display:grid;grid-template-columns:3fr 2fr;min-height:560px;
 }
 .hero-content{padding:64px 56px;color:#fff;align-self:center}
+/* thin white outline badge with a small green dot (commercial-page style) */
 .hero-eyebrow{
-  display:inline-block;background:rgba(66,66,66,.29);color:#fff;
-  border-radius:34px;font-size:11px;font-weight:600;letter-spacing:1px;
-  padding:8px 18px;text-transform:uppercase;margin-bottom:18px;
+  display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.28);color:#fff;
+  border-radius:50px;font-size:12px;font-weight:500;letter-spacing:.4px;
+  padding:6px 16px;text-transform:none;margin-bottom:20px;
   font-family:'Poppins',sans-serif;
 }
+.hero-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;
+  background:var(--green-bright);box-shadow:0 0 0 3px rgba(124,218,36,.25);flex-shrink:0}
 .hero h1{color:#fff;font-size:50px;line-height:60px;width:95%;margin-bottom:.3em}
 .hero h1 .g{color:var(--green)}
-.hero h1 .sub{color:#797c82;font-weight:400}
+/* trailing words: light grey, still bold */
+.hero h1 .sub{color:#a7abbd;font-weight:inherit}
 .hero p{color:rgba(255,255,255,.92);max-width:34em}
 /* hero bullets — single line separated by vertical dividers (Website B style) */
 .hero-sub-claims{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:18px 0 22px;font-size:13px;color:#fff}
