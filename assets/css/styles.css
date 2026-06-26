@@ -92,7 +92,6 @@ ul{margin:0;padding:0}
   padding:13px 28px;transition:var(--t-btn);text-align:center;white-space:nowrap;
 }
 .btn:hover,.btn:focus{text-decoration:none}
-.btn:active{transform:translateY(1px)}
 /* solid green -> fills navy on hover (Website B button_2 behaviour) */
 .btn-green{background:var(--green);color:#fff !important;border-color:var(--green)}
 .btn-green:hover{background:var(--navy);border-color:var(--navy);color:#fff !important}
@@ -147,7 +146,7 @@ ul{margin:0;padding:0}
   font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;
   line-height:1;box-shadow:0 4px 10px rgba(103,163,43,.3);transition:all .3s ease-in-out;white-space:nowrap;
 }
-.nav-cta a:hover{background:var(--green-nav-hover);transform:translateY(-2px);box-shadow:0 6px 15px rgba(103,163,43,.4);color:#fff !important}
+.nav-cta a:hover{background:var(--green-nav-hover);box-shadow:0 6px 15px rgba(103,163,43,.4);color:#fff !important}
 .nav-phone{color:#fff !important;font-size:13px;font-weight:600;font-family:'Poppins',sans-serif;padding:10px 12px;white-space:nowrap}
 .nav-phone:hover{color:var(--green-bright) !important}
 .hamburger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
@@ -201,7 +200,7 @@ ul{margin:0;padding:0}
 .review-badge{display:inline-flex;align-items:center;gap:11px;background:#0e1030;
   border:2px solid rgba(255,255,255,.92);border-radius:50px;padding:8px 20px 8px 16px;
   color:#fff;text-decoration:none;transition:var(--t-main)}
-.review-badge:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.35);color:#fff}
+.review-badge:hover{box-shadow:0 6px 16px rgba(0,0,0,.35);color:#fff}
 .review-badge .rb-logo{width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .review-badge .rb-logo svg{width:30px;height:30px;display:block}
 .review-badge .rb-text{display:flex;flex-direction:column;line-height:1.15}
@@ -267,13 +266,46 @@ textarea.field{min-height:90px;resize:vertical}
    ============================================================ */
 .reviews-head{text-align:center;margin-bottom:34px}
 .reviews-score{font-size:34px;color:var(--green)}
+
+/* --- CN9-style review carousel --- */
+.review-carousel{display:flex;align-items:center;gap:14px;max-width:760px;margin:0 auto}
+.carousel-viewport{flex:1;overflow:hidden}
+.carousel-track{display:flex;transition:transform .45s cubic-bezier(.45,.05,.2,1);will-change:transform}
+.rev-card{flex:0 0 100%;box-sizing:border-box;background:#fff;border-radius:var(--r-card);
+  box-shadow:var(--shadow-card);padding:38px 40px;text-align:center;border:2px solid transparent}
+.rev-source{display:block;width:42px;height:42px;margin:0 auto 16px}
+.rev-source svg{width:42px;height:42px;display:block}
+.rev-stars{color:#fbbc05;font-size:18px;letter-spacing:2px;margin-bottom:16px}
+.rev-stars .rev-score{color:var(--heading);font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;letter-spacing:normal;margin-left:6px}
+.rev-quote{font-size:16px;line-height:1.7;color:var(--body);font-style:italic;max-width:560px;margin:0 auto 22px}
+.rev-meta{display:flex;align-items:center;justify-content:center;gap:12px}
+.rev-avatar{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;flex-shrink:0}
+.rev-id{display:flex;flex-direction:column;text-align:left;line-height:1.25}
+.rev-who{font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;color:var(--heading)}
+.rev-platform{font-size:12px;color:var(--muted)}
+.carousel-arrow{flex-shrink:0;width:48px;height:48px;border-radius:50%;border:2px solid #d9d9e1;
+  background:#fff;color:var(--navy);font-size:26px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-card);transition:var(--t-btn)}
+.carousel-arrow:hover{background:var(--green);border-color:var(--green);color:#fff}
+.carousel-dots{display:flex;gap:9px;justify-content:center;margin-top:24px}
+.cdot{width:10px;height:10px;border-radius:50%;border:0;padding:0;cursor:pointer;
+  background:#cfd2dc;transition:var(--t-btn)}
+.cdot.active{background:var(--green);width:26px;border-radius:5px}
+.review-links .btn{gap:.55em}
+.review-links .rl-ico{display:inline-flex;width:18px;height:18px}
+.review-links .rl-ico svg{width:18px;height:18px;display:block}
+@media(max-width:560px){
+  .rev-card{padding:30px 22px}
+  .carousel-arrow{width:40px;height:40px;font-size:22px}
+}
 .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testimonial{
   background:#fff;border-radius:var(--r-card);overflow:hidden;padding:28px 26px;
   box-shadow:var(--shadow-card);border:2px solid transparent;transition:var(--t-main);
   color:var(--body);
 }
-.testimonial:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:var(--green)}
+.testimonial:hover{box-shadow:var(--shadow-hover);border-color:var(--green)}
 .testimonial .stars{color:#f5a623;font-size:16px;margin-bottom:10px}
 .testimonial p{font-style:italic;color:var(--body)}
 .testimonial .who{font-weight:700;color:var(--heading);font-family:'Poppins',sans-serif;font-size:14px}
@@ -302,7 +334,7 @@ textarea.field{min-height:90px;resize:vertical}
   background:#fff;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);
   transition:var(--t-main);color:var(--body);display:block;
 }
-.img-card:hover{transform:scale(1.05)}
+.img-card:hover{box-shadow:var(--shadow-hover)}
 .img-card .ic-img{aspect-ratio:1/1;background:#eee center/cover no-repeat;overflow:hidden}
 .img-card .ic-img img{width:100%;height:100%;object-fit:cover}
 .img-card .ic-body{display:flex;align-items:center;gap:12px;padding:18px 20px}
@@ -319,7 +351,7 @@ textarea.field{min-height:90px;resize:vertical}
   padding:30px 28px;text-align:center;transition:var(--t-main);color:var(--body);
 }
 .blurb:nth-child(even){border-color:var(--blue)}
-.blurb:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.blurb:hover{box-shadow:var(--shadow-hover)}
 .blurb .b-icon{width:64px;height:64px;border-radius:var(--r-card);background:rgba(88,166,24,.22);
   color:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px}
 .blurb:nth-child(even) .b-icon{background:rgba(0,91,187,.14);color:var(--blue)}
@@ -337,7 +369,7 @@ textarea.field{min-height:90px;resize:vertical}
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .gallery-grid .g-item{border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);aspect-ratio:4/3;background:#eee}
 .gallery-grid .g-item img{width:100%;height:100%;object-fit:cover;transition:var(--t-main)}
-.gallery-grid .g-item:hover img{transform:scale(1.08)}
+.gallery-grid .g-item:hover{box-shadow:var(--shadow-hover)}
 
 /* ============================================================
    PROCESS — 4 steps
@@ -345,7 +377,7 @@ textarea.field{min-height:90px;resize:vertical}
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .step{background:#fff;border:2px solid #ececf1;border-radius:var(--r-card);
   padding:30px 24px;text-align:center;transition:var(--t-main);box-shadow:var(--shadow-card)}
-.step:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.step:hover{border-color:var(--green);box-shadow:var(--shadow-hover)}
 .step .s-num{width:54px;height:54px;border-radius:50%;background:var(--green);color:#fff;
   font-family:'Poppins',sans-serif;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 .step h4{color:var(--heading);font-size:19px}
@@ -377,7 +409,7 @@ textarea.field{min-height:90px;resize:vertical}
    ============================================================ */
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .post-card{background:#fff;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--t-main);color:var(--body)}
-.post-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.post-card:hover{box-shadow:var(--shadow-hover)}
 .post-card .pc-img{aspect-ratio:16/9;background:#ccc center/cover no-repeat}
 .post-card .pc-body{padding:22px 24px}
 .post-card h3{color:var(--heading);font-size:20px}

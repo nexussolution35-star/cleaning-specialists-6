@@ -38,6 +38,29 @@
     });
   });
 
+  // Review carousel (CN9-style): arrows + dots, one card per view
+  document.querySelectorAll('[data-carousel]').forEach(function (root) {
+    var track = root.querySelector('[data-track]');
+    if (!track) return;
+    var slides = track.children;
+    var dotsWrap = root.parentElement.querySelector('[data-dots]');
+    var dots = dotsWrap ? dotsWrap.querySelectorAll('.cdot') : [];
+    var n = slides.length, i = 0;
+    function go(idx) {
+      i = (idx + n) % n;
+      track.style.transform = 'translateX(' + (-100 * i) + '%)';
+      for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('active', d === i);
+    }
+    var prev = root.querySelector('[data-prev]');
+    var next = root.querySelector('[data-next]');
+    if (prev) prev.addEventListener('click', function () { go(i - 1); });
+    if (next) next.addEventListener('click', function () { go(i + 1); });
+    for (var d = 0; d < dots.length; d++) {
+      (function (d) { dots[d].addEventListener('click', function () { go(d); }); })(d);
+    }
+    go(0);
+  });
+
   // Form submit placeholder — replace with CRM / email handler
   document.querySelectorAll('form[data-lead]').forEach(function (f) {
     f.addEventListener('submit', function (e) {
