@@ -189,9 +189,9 @@ ul{margin:0;padding:0}
 .hero h1 .g{color:var(--green)}
 /* trailing words: light grey, still bold */
 .hero h1 .sub{color:#a7abbd;font-weight:inherit}
-.hero p{color:rgba(255,255,255,.92);max-width:34em}
+.hero p{color:#fff;font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:500;font-size:14px;line-height:21px;max-width:38em}
 /* hero bullets — single line separated by vertical dividers (Website B style) */
-.hero-sub-claims{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:0 0 2px;font-size:13px;color:#fff}
+.hero-sub-claims{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:0 0 2px;font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:500;font-size:14px;line-height:21px;color:#fff}
 .hero-sub-claims span{padding:2px 14px;border-right:1px solid rgba(255,255,255,.3);line-height:1.3}
 .hero-sub-claims span:first-child{padding-left:0}
 .hero-sub-claims span:last-child{border-right:none}
@@ -199,7 +199,7 @@ ul{margin:0;padding:0}
 /* hero review badges (Google + Facebook) — screenshot-style dark pills */
 .review-badges{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 16px}
 .review-badge{display:inline-flex;align-items:center;gap:11px;background:#0e1030;
-  border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:8px 20px 8px 16px;
+  border:2px solid rgba(255,255,255,.92);border-radius:50px;padding:8px 20px 8px 16px;
   color:#fff;text-decoration:none;transition:var(--t-main)}
 .review-badge:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.35);color:#fff}
 .review-badge .rb-logo{width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
