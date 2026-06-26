@@ -267,17 +267,20 @@ textarea.field{min-height:90px;resize:vertical}
 .reviews-head{text-align:center;margin-bottom:34px}
 .reviews-score{font-size:34px;color:var(--green)}
 
-/* --- CN9-style review carousel --- */
-.review-carousel{display:flex;align-items:center;gap:14px;max-width:760px;margin:0 auto}
+/* --- CN9-style review carousel (3-up desktop, 1-up mobile) --- */
+.review-carousel{display:flex;align-items:stretch;gap:10px;max-width:var(--content);margin:0 auto}
 .carousel-viewport{flex:1;overflow:hidden}
 .carousel-track{display:flex;transition:transform .45s cubic-bezier(.45,.05,.2,1);will-change:transform}
-.rev-card{flex:0 0 100%;box-sizing:border-box;background:#fff;border-radius:var(--r-card);
-  box-shadow:var(--shadow-card);padding:38px 40px;text-align:center;border:2px solid transparent}
-.rev-source{display:block;width:42px;height:42px;margin:0 auto 16px}
-.rev-source svg{width:42px;height:42px;display:block}
-.rev-stars{color:#fbbc05;font-size:18px;letter-spacing:2px;margin-bottom:16px}
-.rev-stars .rev-score{color:var(--heading);font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;letter-spacing:normal;margin-left:6px}
-.rev-quote{font-size:16px;line-height:1.7;color:var(--body);font-style:italic;max-width:560px;margin:0 auto 22px}
+/* each slide is exactly 1/3 of the viewport on desktop; gutter is internal padding
+   so the JS pixel-shift (page * viewport width) stays exact regardless of gap */
+.rev-slide{flex:0 0 33.3333%;box-sizing:border-box;padding:0 12px;display:flex}
+.rev-card{flex:1;box-sizing:border-box;background:#fff;border-radius:var(--r-card);
+  box-shadow:var(--shadow-card);padding:34px 30px;text-align:center;border:2px solid transparent}
+.rev-source{display:block;width:38px;height:38px;margin:0 auto 14px}
+.rev-source svg{width:38px;height:38px;display:block}
+.rev-stars{color:#fbbc05;font-size:17px;letter-spacing:2px;margin-bottom:14px}
+.rev-stars .rev-score{color:var(--heading);font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;letter-spacing:normal;margin-left:6px}
+.rev-quote{font-size:15px;line-height:1.65;color:var(--body);font-style:italic;margin:0 auto 22px}
 .rev-meta{display:flex;align-items:center;justify-content:center;gap:12px}
 .rev-avatar{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;
   display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;flex-shrink:0}
@@ -292,12 +295,19 @@ textarea.field{min-height:90px;resize:vertical}
 .cdot{width:10px;height:10px;border-radius:50%;border:0;padding:0;cursor:pointer;
   background:#cfd2dc;transition:var(--t-btn)}
 .cdot.active{background:var(--green);width:26px;border-radius:5px}
-.review-links .btn{gap:.55em}
-.review-links .rl-ico{display:inline-flex;width:18px;height:18px}
-.review-links .rl-ico svg{width:18px;height:18px;display:block}
-@media(max-width:560px){
-  .rev-card{padding:30px 22px}
+.review-links .btn{gap:.5em}
+.review-links .rl-ico{display:inline-flex;width:16px;height:16px}
+.review-links .rl-ico svg{width:16px;height:16px;display:block}
+/* tablet: 2-up */
+@media(max-width:1000px){
+  .rev-slide{flex-basis:50%}
+}
+/* mobile: 1-up */
+@media(max-width:700px){
+  .rev-slide{flex-basis:100%;padding:0 6px}
+  .rev-card{padding:30px 24px}
   .carousel-arrow{width:40px;height:40px;font-size:22px}
+  .review-links{flex-direction:column;align-items:stretch}
 }
 .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testimonial{

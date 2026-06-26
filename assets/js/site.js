@@ -38,27 +38,62 @@
     });
   });
 
-  // Review carousel (CN9-style): arrows + dots, one card per view
+  // Review carousel (CN9-style): 3-up desktop / 2-up tablet / 1-up mobile,
+  // arrows + dots page through the reviews.
   document.querySelectorAll('[data-carousel]').forEach(function (root) {
+    var viewport = root.querySelector('.carousel-viewport');
     var track = root.querySelector('[data-track]');
-    if (!track) return;
-    var slides = track.children;
+    if (!viewport || !track) return;
+    var n = track.children.length;
     var dotsWrap = root.parentElement.querySelector('[data-dots]');
-    var dots = dotsWrap ? dotsWrap.querySelectorAll('.cdot') : [];
-    var n = slides.length, i = 0;
-    function go(idx) {
-      i = (idx + n) % n;
-      track.style.transform = 'translateX(' + (-100 * i) + '%)';
-      for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('active', d === i);
-    }
     var prev = root.querySelector('[data-prev]');
     var next = root.querySelector('[data-next]');
-    if (prev) prev.addEventListener('click', function () { go(i - 1); });
-    if (next) next.addEventListener('click', function () { go(i + 1); });
-    for (var d = 0; d < dots.length; d++) {
-      (function (d) { dots[d].addEventListener('click', function () { go(d); }); })(d);
+    var page = 0, pages = 1;
+
+    function perView() {
+      if (window.matchMedia('(max-width:700px)').matches) return 1;
+      if (window.matchMedia('(max-width:1000px)').matches) return 2;
+      return 3;
     }
-    go(0);
+    function buildDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      for (var p = 0; p < pages; p++) {
+        (function (p) {
+          var b = document.createElement('button');
+          b.className = 'cdot' + (p === page ? ' active' : '');
+          b.setAttribute('aria-label', 'Go to review page ' + (p + 1));
+          b.addEventListener('click', function () { go(p); });
+          dotsWrap.appendChild(b);
+        })(p);
+      }
+      dotsWrap.style.display = pages > 1 ? '' : 'none';
+    }
+    function go(p) {
+      page = Math.max(0, Math.min(p, pages - 1));
+      track.style.transform = 'translateX(' + (-page * viewport.clientWidth) + 'px)';
+      if (dotsWrap) {
+        var dots = dotsWrap.children;
+        for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('active', d === page);
+      }
+      var hide = pages <= 1;
+      if (prev) prev.style.display = hide ? 'none' : '';
+      if (next) next.style.display = hide ? 'none' : '';
+    }
+    function layout() {
+      pages = Math.ceil(n / perView());
+      if (page > pages - 1) page = pages - 1;
+      buildDots();
+      go(page);
+    }
+    if (prev) prev.addEventListener('click', function () { go(page - 1); });
+    if (next) next.addEventListener('click', function () { go(page + 1); });
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(layout, 150);
+    });
+    layout();
   });
 
   // Form submit placeholder — replace with CRM / email handler
