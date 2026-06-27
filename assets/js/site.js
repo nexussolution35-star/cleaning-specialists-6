@@ -96,6 +96,22 @@
     layout();
   });
 
+  // Service cards "Show More" — reveal cards in batches
+  document.querySelectorAll('.svc-paged-wrap').forEach(function (wrap) {
+    var batch = parseInt(wrap.getAttribute('data-batch'), 10) || 3;
+    var btn = wrap.querySelector('.svc-more');
+    if (!btn) return;
+    function refresh() {
+      if (!wrap.querySelector('.svc-card.svc-hidden')) btn.style.display = 'none';
+    }
+    btn.addEventListener('click', function () {
+      var hidden = wrap.querySelectorAll('.svc-card.svc-hidden');
+      for (var i = 0; i < batch && i < hidden.length; i++) hidden[i].classList.remove('svc-hidden');
+      refresh();
+    });
+    refresh();
+  });
+
   // Form submit placeholder — replace with CRM / email handler
   document.querySelectorAll('form[data-lead]').forEach(function (f) {
     f.addEventListener('submit', function (e) {
