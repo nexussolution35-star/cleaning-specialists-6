@@ -383,6 +383,23 @@ textarea.field{min-height:90px;resize:vertical}
   display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700}
 .img-card h4{font-size:18px;margin:0;color:var(--heading)}
 
+/* Service cards — head-office homepage style (icon on top, 3px green/blue
+   border, 30px radius, tinted rounded icon box; box fills on hover) */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{display:flex;flex-direction:column;align-items:center;text-align:center;
+  background:#fff;border:3px solid var(--green);border-radius:var(--r-card);
+  padding:30px 28px;color:var(--body);transition:var(--t-main)}
+.svc-card:nth-child(even){border-color:var(--blue)}
+.svc-ico{display:flex;align-items:center;justify-content:center;box-sizing:border-box;
+  width:88px;height:80px;padding:16px 19px;border-radius:var(--r-card);overflow:hidden;
+  margin-bottom:18px;background:rgba(88,166,24,.22);color:var(--green);transition:var(--t-main)}
+.svc-card:nth-child(even) .svc-ico{background:rgba(0,91,187,.23);color:var(--blue)}
+.svc-ico svg{width:46px;height:46px;display:block}
+.svc-card:hover{box-shadow:var(--shadow-hover)}
+.svc-card:hover .svc-ico{background:var(--green);color:#fff}
+.svc-card:nth-child(even):hover .svc-ico{background:var(--blue);color:#fff}
+.svc-card h4{font-size:20px;margin:0;color:var(--heading)}
+
 /* ============================================================
    WHY — blurb cards (30px bordered, icon circle)
    ============================================================ */
@@ -544,6 +561,7 @@ textarea.field{min-height:90px;resize:vertical}
 @media (max-width:980px){
   h1{font-size:29px}h2{font-size:24px}h3{font-size:21px}h4{font-size:17px}
   .section-center > h2,.about-banner-title,.reviews-score{font-size:28px;line-height:1.3}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
   .hero-panel{grid-template-columns:1fr;background-image:linear-gradient(90deg,rgba(25,18,69,.92),#191245 60%,rgba(0,91,187,.5)),url("../images/hero-banner-mobile.png")}
   .hero h1{font-size:40px;line-height:44px;width:100%}
   .hero-form-col{padding:0 40px 40px}
@@ -554,7 +572,7 @@ textarea.field{min-height:90px;resize:vertical}
   .hamburger{display:block}
 }
 @media (max-width:680px){
-  .testimonial-grid,.card-grid,.card-grid.cols4,.blurb-grid,.offer-grid,.blog-grid,.gallery-grid,.process-grid,.included-grid,.footer-cols{grid-template-columns:1fr}
+  .testimonial-grid,.card-grid,.card-grid.cols4,.svc-grid,.blurb-grid,.offer-grid,.blog-grid,.gallery-grid,.process-grid,.included-grid,.footer-cols{grid-template-columns:1fr}
   .lead-form .grid2{grid-template-columns:1fr}
   .hero-content{padding:40px 28px}
 }
