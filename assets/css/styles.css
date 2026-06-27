@@ -389,7 +389,7 @@ textarea.field{min-height:90px;resize:vertical}
   background:#0e1030 center/cover no-repeat}
 /* badge straddles the seam at the top-left of the image: ~50% over the navy
    panel, ~50% over the photo */
-.commit-badge{position:absolute;top:22px;left:14px;transform:translateX(-50%);
+.commit-badge{position:absolute;top:22px;left:-18px;transform:none;
   width:128px;height:auto;filter:drop-shadow(0 4px 12px rgba(0,0,0,.4));z-index:4}
 .commit-badge img{width:128px;height:auto;display:block;border-radius:50%}
 @media(max-width:820px){
