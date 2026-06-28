@@ -303,8 +303,7 @@ textarea.field{min-height:90px;resize:vertical}
 .rev-stars .rev-score{color:var(--heading);font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;letter-spacing:normal;margin-left:6px}
 .rev-quote{font-size:15px;line-height:1.65;color:var(--body);font-style:italic;margin:0 auto 22px}
 .rev-meta{display:flex;align-items:center;justify-content:center;gap:12px}
-.rev-avatar{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;flex-shrink:0}
+.rev-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;display:block;background:#eef0f3}
 .rev-id{display:flex;flex-direction:column;text-align:left;line-height:1.25}
 .rev-who{font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;color:var(--heading)}
 .rev-platform{font-size:12px;color:var(--muted)}
