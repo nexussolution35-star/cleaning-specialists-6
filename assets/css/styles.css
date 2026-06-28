@@ -307,6 +307,16 @@ textarea.field{min-height:90px;resize:vertical}
   background:rgba(255,255,255,.12);color:#fff;border-radius:50%;font-size:26px;line-height:1;
   display:flex;align-items:center;justify-content:center;transition:var(--t-btn)}
 .lightbox-close:hover{background:var(--green)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border:0;cursor:pointer;
+  background:rgba(255,255,255,.12);color:#fff;border-radius:50%;font-size:30px;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:var(--t-btn);z-index:2}
+.lightbox-nav:hover{background:var(--green)}
+.lightbox-nav.prev{left:20px}
+.lightbox-nav.next{right:20px}
+@media(max-width:600px){
+  .lightbox-nav{width:42px;height:42px;font-size:24px}
+  .lightbox-nav.prev{left:8px}.lightbox-nav.next{right:8px}
+}
 .cdot{width:10px;height:10px;border-radius:50%;border:0;padding:0;cursor:pointer;
   background:#cfd2dc;transition:var(--t-btn)}
 .cdot.active{background:var(--green);width:26px;border-radius:5px}

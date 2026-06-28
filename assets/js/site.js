@@ -112,28 +112,54 @@
     refresh();
   });
 
-  // Image lightbox (shared) — open(src), close on X / outside / Esc
-  var lb, lbImg;
+  // Image lightbox (shared) — navigable: prev/next buttons, arrow keys, swipe
+  var lb, lbImg, lbList = [], lbIdx = 0;
   function buildLightbox() {
     lb = document.createElement('div');
     lb.className = 'lightbox';
-    lb.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img alt=""/>';
+    lb.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button>' +
+      '<button class="lightbox-nav prev" aria-label="Previous image">&#8249;</button>' +
+      '<img alt=""/>' +
+      '<button class="lightbox-nav next" aria-label="Next image">&#8250;</button>';
     lbImg = lb.querySelector('img');
-    lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) closeLightbox(); });
+    lb.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lb.querySelector('.lightbox-nav.prev').addEventListener('click', function (e) { e.stopPropagation(); lbStep(-1); });
+    lb.querySelector('.lightbox-nav.next').addEventListener('click', function (e) { e.stopPropagation(); lbStep(1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
+    var x0 = null;
+    lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) lbStep(dx < 0 ? 1 : -1);
+      x0 = null;
+    });
     document.body.appendChild(lb);
   }
-  function openLightbox(src, alt) {
+  function showLb() { var it = lbList[lbIdx]; if (it) { lbImg.src = it.src; lbImg.alt = it.alt || ''; } }
+  function lbStep(d) { if (lbList.length) { lbIdx = (lbIdx + d + lbList.length) % lbList.length; showLb(); } }
+  function openLightbox(list, index) {
     if (!lb) buildLightbox();
-    lbImg.src = src; lbImg.alt = alt || '';
+    lbList = list; lbIdx = index || 0; showLb();
+    var solo = lbList.length < 2;
+    lb.querySelector('.lightbox-nav.prev').style.display = solo ? 'none' : '';
+    lb.querySelector('.lightbox-nav.next').style.display = solo ? 'none' : '';
     lb.classList.add('open'); document.body.style.overflow = 'hidden';
   }
-  function closeLightbox() {
-    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
-  }
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
-  document.querySelectorAll('.gallery-grid .g-item img').forEach(function (img) {
+  function closeLightbox() { if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; } }
+  window.__openLightbox = openLightbox;
+  document.addEventListener('keydown', function (e) {
+    if (!lb || !lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') lbStep(-1);
+    else if (e.key === 'ArrowRight') lbStep(1);
+  });
+  // gallery grid → open lightbox at clicked index, navigable across the grid
+  var gItems = Array.prototype.slice.call(document.querySelectorAll('.gallery-grid .g-item img'));
+  var gList = gItems.map(function (im) { return { src: im.src, alt: im.alt }; });
+  gItems.forEach(function (img, i) {
     img.style.cursor = 'zoom-in';
-    img.addEventListener('click', function () { openLightbox(img.src, img.alt); });
+    img.addEventListener('click', function () { openLightbox(gList, i); });
   });
 
   // Our Work — centre-mode carousel (featured centred, neighbours dimmed)
@@ -170,9 +196,10 @@
         for (var k = 0; k < dd.length; k++) dd[k].classList.toggle('active', k === idx);
       }
     }
+    var workList = slides.map(function (s) { var im = s.querySelector('img'); return { src: im.src, alt: im.alt }; });
     slides.forEach(function (s, j) {
       s.addEventListener('click', function () {
-        if (j === idx) { var im = s.querySelector('img'); if (im) openLightbox(im.src, im.alt); }
+        if (j === idx) { openLightbox(workList, j); }
         else { go(j); }
       });
     });
