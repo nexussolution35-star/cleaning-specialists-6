@@ -264,22 +264,21 @@ textarea.field{min-height:90px;resize:vertical}
 .panel-dark > .section-center p{color:rgba(255,255,255,.85)}
 
 /* marquee divider — subtle light brand strip, not a blue bar */
-/* brand-mark divider between sections */
-.logo-divider{display:flex;align-items:center;justify-content:center;gap:20px;
-  width:var(--content);max-width:680px;margin:0 auto;padding:30px 0}
-.logo-divider .ld-line{flex:1;height:2px;background:linear-gradient(90deg,transparent,rgba(25,18,69,.16),transparent)}
-.logo-divider .ld-mark{width:34px;height:34px;flex-shrink:0;display:block}
-
-.marquee{background:#f0f1f5;overflow:hidden;white-space:nowrap;padding:11px 0}
+/* scrolling brand band — used as a divider; grey matches the grey sections */
+.marquee{background:#f4f5f7;overflow:hidden;white-space:nowrap;padding:14px 0}
 .marquee-track{display:inline-flex;align-items:center;will-change:transform;
-  animation:mq-scroll 45s linear infinite}
+  animation:mq-scroll 55s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
-.mq-item{display:inline-flex;align-items:center;gap:9px;padding:0 26px;
+.mq-item{display:inline-flex;align-items:center;gap:11px;padding:0 44px;
   font-family:'Poppins',Helvetica,Arial,sans-serif;font-weight:700;text-transform:uppercase;
-  font-size:14px;letter-spacing:1px;line-height:1}
-.mq-mark{width:22px;height:22px;display:block;flex-shrink:0}
+  font-size:20px;letter-spacing:1px;line-height:1}
+.mq-mark{width:30px;height:30px;display:block;flex-shrink:0}
 .mq-c{color:var(--blue)}
 .mq-s{color:var(--green)}
+/* dark variant for the footer — blends with the navy footer */
+.marquee-dark{background:var(--navy)}
+.marquee-dark .mq-c{color:#5fb0ff}
+.marquee-dark .mq-s{color:var(--green-bright)}
 @keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 
