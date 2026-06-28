@@ -264,9 +264,18 @@ textarea.field{min-height:90px;resize:vertical}
 .panel-dark > .section-center p{color:rgba(255,255,255,.85)}
 
 /* marquee divider — subtle light brand strip, not a blue bar */
-.marquee{background:#f0f1f5;color:var(--navy);overflow:hidden;white-space:nowrap;padding:9px 0;
-  font-family:'Poppins',sans-serif;font-weight:700;text-transform:uppercase;font-size:12px;letter-spacing:2px}
-.marquee span{display:inline-block;padding:0 22px;opacity:.45}
+.marquee{background:#f0f1f5;overflow:hidden;white-space:nowrap;padding:11px 0}
+.marquee-track{display:inline-flex;align-items:center;will-change:transform;
+  animation:mq-scroll 45s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.mq-item{display:inline-flex;align-items:center;gap:9px;padding:0 26px;
+  font-family:'Poppins',Helvetica,Arial,sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:14px;letter-spacing:1px;line-height:1}
+.mq-mark{width:22px;height:22px;display:block;flex-shrink:0}
+.mq-c{color:var(--blue)}
+.mq-s{color:var(--green)}
+@keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 
 /* ============================================================
    REVIEWS / testimonials
