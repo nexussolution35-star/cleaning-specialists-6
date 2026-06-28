@@ -509,22 +509,22 @@ textarea.field{min-height:90px;resize:vertical}
   .work-slide img{height:200px}
 }
 /* ============================================================
-   PROCESS — 4 steps
+   PROCESS — 4 steps (head-office style: colour number circle + text, no card)
    ============================================================ */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.step{background:#fff;border:2px solid #ececf1;border-radius:var(--r-card);
-  padding:30px 24px;text-align:center;transition:var(--t-main);box-shadow:var(--shadow-card)}
-.step:hover{border-color:var(--green);box-shadow:var(--shadow-hover)}
-.step .s-num{width:54px;height:54px;border-radius:50%;background:var(--green);color:#fff;
-  font-family:'Poppins',sans-serif;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
-.step h4{color:var(--heading);font-size:19px}
-.step p{color:var(--body);font-size:14px;line-height:1.7}
-.process-note{text-align:center;margin-top:26px;color:var(--muted)}
-/* inside a dark panel, steps invert */
-.panel-dark .step{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);box-shadow:none}
-.panel-dark .step h4{color:#fff}
-.panel-dark .step p{color:rgba(255,255,255,.8)}
-.panel-dark .process-note{color:rgba(255,255,255,.8)}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:36px}
+.proc-step{text-align:center}
+.proc-num{width:64px;height:64px;border-radius:50%;margin:0 auto 18px;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:26px;
+  background:var(--blue);box-shadow:0 6px 16px rgba(0,0,0,.14)}
+.proc-step:nth-child(1) .proc-num{background:var(--blue)}
+.proc-step:nth-child(2) .proc-num{background:var(--navy)}
+.proc-step:nth-child(3) .proc-num{background:var(--green)}
+.proc-step:nth-child(4) .proc-num{background:var(--blue)}
+.proc-step h4{color:var(--heading);font-size:19px;margin:0 0 8px}
+.proc-step p{color:var(--muted);font-size:14px;line-height:1.7;max-width:15em;margin:0 auto}
+@media(max-width:760px){.proc-grid{grid-template-columns:repeat(2,1fr);gap:30px 22px}}
+@media(max-width:430px){.proc-grid{grid-template-columns:1fr}}
 
 /* ============================================================
    OFFERS / financing — contained cards on circles bg
