@@ -112,6 +112,48 @@
     refresh();
   });
 
+  // Our Work — centre-mode carousel (featured centred, neighbours dimmed)
+  document.querySelectorAll('[data-work]').forEach(function (root) {
+    var vp = root.querySelector('.work-viewport');
+    var track = root.querySelector('[data-work-track]');
+    if (!vp || !track) return;
+    var slides = Array.prototype.slice.call(track.children);
+    var n = slides.length;
+    var dotsWrap = root.parentElement.querySelector('[data-work-dots]');
+    var prev = root.querySelector('[data-work-prev]');
+    var next = root.querySelector('[data-work-next]');
+    var idx = 0;
+
+    if (dotsWrap) {
+      for (var d = 0; d < n; d++) {
+        (function (d) {
+          var b = document.createElement('button');
+          b.className = 'cdot';
+          b.setAttribute('aria-label', 'Go to project ' + (d + 1));
+          b.addEventListener('click', function () { go(d); });
+          dotsWrap.appendChild(b);
+        })(d);
+      }
+    }
+    function go(i) {
+      idx = Math.max(0, Math.min(i, n - 1));
+      var slideW = slides[0].offsetWidth;
+      var center = slides[idx].offsetLeft + slideW / 2;
+      track.style.transform = 'translateX(' + (vp.clientWidth / 2 - center) + 'px)';
+      slides.forEach(function (s, j) { s.classList.toggle('is-active', j === idx); });
+      if (dotsWrap) {
+        var dd = dotsWrap.children;
+        for (var k = 0; k < dd.length; k++) dd[k].classList.toggle('active', k === idx);
+      }
+    }
+    slides.forEach(function (s, j) { s.addEventListener('click', function () { go(j); }); });
+    if (prev) prev.addEventListener('click', function () { go(idx - 1); });
+    if (next) next.addEventListener('click', function () { go(idx + 1); });
+    var rt;
+    window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { go(idx); }, 150); });
+    go(0);
+  });
+
   // Form submit placeholder — replace with CRM / email handler
   document.querySelectorAll('form[data-lead]').forEach(function (f) {
     f.addEventListener('submit', function (e) {
