@@ -20,7 +20,16 @@
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(function (q) {
     q.addEventListener('click', function () {
-      q.parentElement.classList.toggle('open');
+      var item = q.parentElement;
+      var willOpen = !item.classList.contains('open');
+      // "Why Clients Pick Us" accordion: only one panel open at a time
+      var group = q.closest('.commit-acc');
+      if (group && willOpen) {
+        group.querySelectorAll('.faq-item.open').forEach(function (other) {
+          if (other !== item) other.classList.remove('open');
+        });
+      }
+      item.classList.toggle('open');
     });
   });
 
