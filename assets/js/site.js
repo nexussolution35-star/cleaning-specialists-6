@@ -210,6 +210,16 @@
     go(0);
   });
 
+  // Review "Read more" toggle (expand/collapse long reviews)
+  document.querySelectorAll('.rev-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = btn.closest('.rev-card');
+      if (!card) return;
+      var expanded = card.classList.toggle('rev-expanded');
+      btn.textContent = expanded ? 'Read less' : 'Read more';
+    });
+  });
+
   // Form submit placeholder — replace with CRM / email handler
   document.querySelectorAll('form[data-lead]').forEach(function (f) {
     f.addEventListener('submit', function (e) {
