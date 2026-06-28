@@ -112,6 +112,30 @@
     refresh();
   });
 
+  // Image lightbox (shared) — open(src), close on X / outside / Esc
+  var lb, lbImg;
+  function buildLightbox() {
+    lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img alt=""/>';
+    lbImg = lb.querySelector('img');
+    lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) closeLightbox(); });
+    document.body.appendChild(lb);
+  }
+  function openLightbox(src, alt) {
+    if (!lb) buildLightbox();
+    lbImg.src = src; lbImg.alt = alt || '';
+    lb.classList.add('open'); document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+  document.querySelectorAll('.gallery-grid .g-item img').forEach(function (img) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function () { openLightbox(img.src, img.alt); });
+  });
+
   // Our Work — centre-mode carousel (featured centred, neighbours dimmed)
   document.querySelectorAll('[data-work]').forEach(function (root) {
     var vp = root.querySelector('.work-viewport');
@@ -146,7 +170,12 @@
         for (var k = 0; k < dd.length; k++) dd[k].classList.toggle('active', k === idx);
       }
     }
-    slides.forEach(function (s, j) { s.addEventListener('click', function () { go(j); }); });
+    slides.forEach(function (s, j) {
+      s.addEventListener('click', function () {
+        if (j === idx) { var im = s.querySelector('img'); if (im) openLightbox(im.src, im.alt); }
+        else { go(j); }
+      });
+    });
     if (prev) prev.addEventListener('click', function () { go(idx - 1); });
     if (next) next.addEventListener('click', function () { go(idx + 1); });
     var rt;

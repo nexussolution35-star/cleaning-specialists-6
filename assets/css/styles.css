@@ -296,7 +296,17 @@ textarea.field{min-height:90px;resize:vertical}
   background:#fff;color:var(--navy);font-size:26px;line-height:1;cursor:pointer;
   display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-card);transition:var(--t-btn)}
 .carousel-arrow:hover{background:var(--green);border-color:var(--green);color:#fff}
-.carousel-dots{display:flex;gap:9px;justify-content:center;margin-top:24px}
+.carousel-dots{display:flex;gap:9px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+
+/* image lightbox / modal */
+.lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;
+  background:rgba(8,8,20,.88);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;padding:24px}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:var(--r-card);box-shadow:0 20px 60px rgba(0,0,0,.6);display:block}
+.lightbox-close{position:absolute;top:18px;right:24px;width:46px;height:46px;border:0;cursor:pointer;
+  background:rgba(255,255,255,.12);color:#fff;border-radius:50%;font-size:26px;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:var(--t-btn)}
+.lightbox-close:hover{background:var(--green)}
 .cdot{width:10px;height:10px;border-radius:50%;border:0;padding:0;cursor:pointer;
   background:#cfd2dc;transition:var(--t-btn)}
 .cdot.active{background:var(--green);width:26px;border-radius:5px}
