@@ -124,8 +124,7 @@ ul{margin:0;padding:0}
 .topbar a{color:#fff}
 .topbar a:hover{color:var(--green-bright)}
 .topbar .ti-left{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-.topbar .ti-avail{display:inline-flex;align-items:center;gap:8px;font-weight:600;
-  background:rgba(124,218,36,.16);padding:4px 13px;border-radius:72px}
+.topbar .ti-avail{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--green-bright)}
 .topbar .ti-dot{width:9px;height:9px;border-radius:50%;background:var(--green-bright);flex-shrink:0;
   box-shadow:0 0 0 0 rgba(124,218,36,.7);animation:tiPulse 1.8s ease-out infinite}
 @keyframes tiPulse{
