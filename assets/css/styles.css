@@ -264,6 +264,12 @@ textarea.field{min-height:90px;resize:vertical}
 .panel-dark > .section-center p{color:rgba(255,255,255,.85)}
 
 /* marquee divider — subtle light brand strip, not a blue bar */
+/* brand-mark divider between sections */
+.logo-divider{display:flex;align-items:center;justify-content:center;gap:20px;
+  width:var(--content);max-width:680px;margin:0 auto;padding:30px 0}
+.logo-divider .ld-line{flex:1;height:2px;background:linear-gradient(90deg,transparent,rgba(25,18,69,.16),transparent)}
+.logo-divider .ld-mark{width:34px;height:34px;flex-shrink:0;display:block}
+
 .marquee{background:#f0f1f5;overflow:hidden;white-space:nowrap;padding:11px 0}
 .marquee-track{display:inline-flex;align-items:center;will-change:transform;
   animation:mq-scroll 45s linear infinite}
