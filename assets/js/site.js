@@ -38,10 +38,10 @@
     });
   });
 
-  // Review carousel: auto-scrolls one card every 5s, looping endlessly.
-  // 3-up desktop / 2-up tablet / 1-up mobile. Clones of the leading cards are
-  // appended so the wrap from last → first is seamless, then we snap back.
-  // Dots = one per review; the active dot tracks the front (left-most) card.
+  // Review carousel. Auto-play advances ONE card every 5s and loops endlessly
+  // (leading cards cloned so the wrap is seamless, then we snap back). The
+  // arrows page by a FULL view (3 cards desktop / 2 tablet / 1 mobile). Dots are
+  // page-based (one per page) and the active dot tracks the front card's page.
   document.querySelectorAll('[data-carousel]').forEach(function (root) {
     var viewport = root.querySelector('.carousel-viewport');
     var track = root.querySelector('[data-track]');
@@ -52,8 +52,9 @@
     var dotsWrap = root.parentElement.querySelector('[data-dots]');
     var prev = root.querySelector('[data-prev]');
     var next = root.querySelector('[data-next]');
-    var idx = 0;            // logical front index; n..n+pv-1 are clones
-    var pv = 3;
+    var idx = 0;            // front real index; idx >= n means we're on the clones
+    var pv = 3;             // cards per view (page size)
+    var pages = 1;
     var clones = [];
     var timer = null;
     var busy = false;
@@ -64,6 +65,7 @@
       return 3;
     }
     function slideW() { return real[0].getBoundingClientRect().width; }
+    function pageOf() { return Math.min(Math.floor((((idx % n) + n) % n) / pv), pages - 1); }
 
     function place(animate) {
       track.style.transition = animate ? '' : 'none';
@@ -72,27 +74,29 @@
     }
     function syncDots() {
       if (!dotsWrap) return;
-      var active = ((idx % n) + n) % n;
+      var active = pageOf();
       var dots = dotsWrap.children;
       for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('active', d === active);
     }
     function buildDots() {
       if (!dotsWrap) return;
       dotsWrap.innerHTML = '';
-      for (var p = 0; p < n; p++) {
+      for (var p = 0; p < pages; p++) {
         (function (p) {
           var b = document.createElement('button');
           b.className = 'cdot';
-          b.setAttribute('aria-label', 'Go to review ' + (p + 1));
-          b.addEventListener('click', function () { stop(); goTo(p); start(); });
+          b.setAttribute('aria-label', 'Go to review page ' + (p + 1));
+          b.addEventListener('click', function () { stop(); goTo(p * pv); start(); });
           dotsWrap.appendChild(b);
         })(p);
       }
+      dotsWrap.style.display = pages > 1 ? '' : 'none';
     }
     function makeClones() {
       clones.forEach(function (c) { if (c.parentNode) track.removeChild(c); });
       clones = [];
       pv = perView();
+      pages = Math.ceil(n / pv);
       for (var i = 0; i < pv; i++) {
         var c = real[i % n].cloneNode(true);
         c.setAttribute('aria-hidden', 'true');
@@ -105,24 +109,33 @@
       if (i === idx) { syncDots(); return; }
       busy = true; idx = i; place(true); syncDots();
     }
+    // auto-play: single card forward
     function step() { if (!busy) goTo(idx + 1); }
-    function back() {
+    // arrows: jump a whole page, wrapping at the ends
+    function nextPage() {
       if (busy) return;
-      if (idx <= 0) { idx = n; place(false); }
-      goTo(idx - 1);
+      var cp = pageOf();
+      if (cp >= pages - 1) goTo(n);            // → first page (via clones), then snap home
+      else goTo((cp + 1) * pv);
+    }
+    function prevPage() {
+      if (busy) return;
+      var cp = pageOf();
+      if (cp <= 0) { idx = n; place(false); goTo((pages - 1) * pv); }  // jump to clone of page 1, slide back to last
+      else goTo((cp - 1) * pv);
     }
 
     track.addEventListener('transitionend', function (e) {
       if (e.target !== track || e.propertyName !== 'transform') return;
       busy = false;
-      if (idx >= n) { idx -= n; place(false); syncDots(); }   // wrapped into clones → snap home
+      if (idx >= n) { idx -= n; place(false); syncDots(); }   // wrapped onto clones → snap home
     });
 
     function start() { stop(); timer = setInterval(step, 5000); }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
-    if (prev) prev.addEventListener('click', function () { stop(); back(); start(); });
-    if (next) next.addEventListener('click', function () { stop(); step(); start(); });
+    if (prev) prev.addEventListener('click', function () { stop(); prevPage(); start(); });
+    if (next) next.addEventListener('click', function () { stop(); nextPage(); start(); });
     root.addEventListener('mouseenter', stop);
     root.addEventListener('mouseleave', start);
 
