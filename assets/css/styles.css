@@ -123,8 +123,17 @@ ul{margin:0;padding:0}
 .topbar .wrap{max-width:var(--maxw);display:flex;justify-content:space-between;align-items:center;padding:8px 0;gap:16px;flex-wrap:wrap}
 .topbar a{color:#fff}
 .topbar a:hover{color:var(--green-bright)}
-.topbar .ti-left{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.topbar .ti-social{display:flex;gap:14px;list-style:none;align-items:center}
+.topbar .ti-left{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.topbar .ti-avail{display:inline-flex;align-items:center;gap:8px;font-weight:600;
+  background:rgba(124,218,36,.16);padding:4px 13px;border-radius:72px}
+.topbar .ti-dot{width:9px;height:9px;border-radius:50%;background:var(--green-bright);flex-shrink:0;
+  box-shadow:0 0 0 0 rgba(124,218,36,.7);animation:tiPulse 1.8s ease-out infinite}
+@keyframes tiPulse{
+  0%{box-shadow:0 0 0 0 rgba(124,218,36,.6)}
+  70%{box-shadow:0 0 0 8px rgba(124,218,36,0)}
+  100%{box-shadow:0 0 0 0 rgba(124,218,36,0)}
+}
+.topbar .ti-social{display:flex;gap:12px;list-style:none;align-items:center;margin-left:2px}
 .topbar .ti-social a{display:inline-flex;align-items:center}
 .topbar .ti-social svg{width:17px;height:17px;display:block}
 
@@ -654,6 +663,7 @@ textarea.field{min-height:90px;resize:vertical}
 .fsocial a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
   display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px}
 .fsocial a:hover{background:var(--green);border-color:var(--green)}
+.fsocial svg{width:17px;height:17px;display:block}
 .footer-membership{text-align:center;padding:36px 0 0}
 .footer-membership img{max-width:900px;width:100%;margin:14px auto 0}
 .footer-bottom{text-align:center;padding:22px 0;margin-top:30px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--muted-2)}
