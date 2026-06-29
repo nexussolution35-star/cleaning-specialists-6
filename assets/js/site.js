@@ -14,7 +14,11 @@
   var burger = document.querySelector('.hamburger');
   var mobile = document.querySelector('.mobile-menu');
   if (burger && mobile) {
-    burger.addEventListener('click', function () { mobile.classList.toggle('open'); });
+    burger.addEventListener('click', function () {
+      var open = mobile.classList.toggle('open');
+      burger.innerHTML = open ? '✕' : '☰';   // ✕ when open, ☰ when closed
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
   }
 
   // FAQ accordion

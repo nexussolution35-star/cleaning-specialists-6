@@ -164,11 +164,19 @@ ul{margin:0;padding:0}
 .nav-cta a:hover{background:var(--green-nav-hover);box-shadow:0 6px 15px rgba(103,163,43,.4);color:#fff !important}
 .nav-phone{color:#fff !important;font-size:13px;font-weight:600;font-family:'Poppins',sans-serif;padding:10px 12px;white-space:nowrap}
 .nav-phone:hover{color:var(--green-bright) !important}
-.hamburger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+.hdr-right{display:flex;align-items:center;gap:12px}
+/* compact "Call Now" button — shown next to the hamburger on mobile/tablet */
+.hdr-call{display:none;align-items:center;gap:7px;background:var(--green-nav);color:#fff !important;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.3px;
+  padding:9px 15px;border-radius:50px;white-space:nowrap;line-height:1}
+.hdr-call svg{width:15px;height:15px;display:block}
+.hamburger{display:none;background:none;border:0;color:#fff;font-size:26px;line-height:1;width:34px;height:34px;cursor:pointer}
 .mobile-menu{display:none;background:var(--navy);border-top:1px solid rgba(255,255,255,.1)}
 .mobile-menu ul{list-style:none}
 .mobile-menu a{color:rgba(255,255,255,.85);display:block;padding:12px 24px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
 .mobile-menu.open{display:block}
+/* floating bottom action bar (mobile/tablet only) */
+.mobile-cta{display:none}
 
 /* ============================================================
    HERO — contained 50px rounded panel + gradient over banner
@@ -724,12 +732,31 @@ textarea.field{min-height:90px;resize:vertical}
   .svc-grid{grid-template-columns:repeat(2,1fr);max-width:none}
   .hero-panel{grid-template-columns:1fr;background-image:linear-gradient(90deg,rgba(20,15,55,.72),rgba(20,15,55,.55) 60%,rgba(0,91,187,.22)),url("../images/hero-banner-mobile.png")}
   .hero h1{font-size:40px;line-height:44px;width:100%}
+  /* homepage hero: drop the squashed form on mobile — the floating bar + #cta-form handle the CTA */
+  #hero .hero-form-col{display:none}
   .hero-form-col{padding:0 40px 40px}
   .split,.split.reverse .split-img{grid-template-columns:1fr}
   .split.reverse .split-img{order:0}
   .contact-grid,.cta-panel{grid-template-columns:1fr}
   .nav,.nav-phone,.nav-cta{display:none}
+  .hdr-call{display:inline-flex}
   .hamburger{display:block}
+  /* keep the two review pills side-by-side (CN9-style) instead of stacking */
+  .review-badges{flex-wrap:nowrap;gap:10px}
+  .review-badge{flex:1 1 0;min-width:0;padding:11px 12px;gap:9px}
+  .review-badge .rb-logo,.review-badge .rb-logo svg{width:26px;height:26px}
+  .review-badge .rb-score{font-size:14px;gap:5px}
+  .review-badge .rb-stars{font-size:11px;letter-spacing:1px}
+  .review-badge .rb-label{font-size:11px}
+  /* floating bottom action bar */
+  .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:#fff;box-shadow:0 -4px 18px rgba(0,0,0,.16)}
+  .mobile-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;line-height:1}
+  .mobile-cta .mc-call{color:var(--navy) !important}
+  .mobile-cta .mc-call svg{width:17px;height:17px;display:block}
+  .mobile-cta .mc-quote{background:var(--green);color:#fff !important}
+  body{padding-bottom:60px}
 }
 @media (max-width:680px){
   .testimonial-grid,.card-grid,.card-grid.cols4,.svc-grid,.blurb-grid,.offer-grid,.blog-grid,.gallery-grid,.process-grid,.included-grid,.footer-cols{grid-template-columns:1fr}
