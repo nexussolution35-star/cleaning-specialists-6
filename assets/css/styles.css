@@ -175,8 +175,6 @@ ul{margin:0;padding:0}
 .mobile-menu ul{list-style:none}
 .mobile-menu a{color:rgba(255,255,255,.85);display:block;padding:12px 24px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
 .mobile-menu.open{display:block}
-/* floating bottom action bar (mobile/tablet only) */
-.mobile-cta{display:none}
 
 /* ============================================================
    HERO — contained 50px rounded panel + gradient over banner
@@ -371,10 +369,15 @@ textarea.field{min-height:90px;resize:vertical}
 /* mobile: 1-up */
 @media(max-width:700px){
   .rev-slide{flex-basis:100%;padding:0 4px}
-  .rev-card{padding:30px 22px}
+  .rev-card{padding:28px 22px}
   .review-carousel{padding:0 26px}
   .carousel-arrow{width:34px;height:34px;font-size:20px}
-  .review-links{flex-direction:column;align-items:stretch}
+  /* 1-up: each card sizes to its own content (JS fits the viewport height) */
+  .carousel-track{align-items:flex-start}
+  .carousel-viewport{transition:height .4s ease}
+  /* "See all" buttons hug their text and centre, instead of full-width */
+  .review-links{flex-direction:column;align-items:center;gap:12px}
+  .review-links .btn{width:auto}
 }
 .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testimonial{
@@ -458,11 +461,10 @@ textarea.field{min-height:90px;resize:vertical}
 .commit-badge img{width:128px;height:auto;display:block;border-radius:50%}
 @media(max-width:820px){
   .commit-panel{grid-template-columns:1fr}
-  .commit-left{padding:38px 28px 8px}
-  .commit-right{padding:0 28px 32px}
-  .commit-img{height:340px}
-  /* stacked: straddle the top edge of the image instead */
-  .commit-badge{top:0;left:44px;bottom:auto;transform:translateY(-50%)}
+  /* mobile: drop the photo/badge; the accordion uses the full panel width
+     (matching the About card) instead of being squashed into a column */
+  .commit-right{display:none}
+  .commit-left{padding:40px 30px}
 }
 
 /* ============================================================
@@ -741,6 +743,9 @@ textarea.field{min-height:90px;resize:vertical}
   .split,.split.reverse .split-img{grid-template-columns:1fr}
   .split.reverse .split-img{order:0}
   .contact-grid,.cta-panel{grid-template-columns:1fr}
+  /* CTA band before the footer: same treatment as the hero so its form
+     isn't squashed — single column, trimmed padding, comfortable gap */
+  .cta-panel{padding:34px 20px;gap:26px}
   .nav,.nav-phone,.nav-cta{display:none}
   .hdr-call{display:inline-flex}
   .hamburger{display:block}
@@ -751,16 +756,6 @@ textarea.field{min-height:90px;resize:vertical}
   .review-badge .rb-score{font-size:14px;gap:5px}
   .review-badge .rb-stars{font-size:11px;letter-spacing:1px}
   .review-badge .rb-label{font-size:11px}
-  /* floating bottom action bar — a centred, rounded pill, not edge-to-edge */
-  .mobile-cta{display:flex;position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;
-    width:calc(100% - 28px);max-width:440px;background:#fff;border-radius:var(--r-pill);
-    overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.26)}
-  .mobile-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
-    padding:13px 8px;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;line-height:1}
-  .mobile-cta .mc-call{color:var(--navy) !important}
-  .mobile-cta .mc-call svg{width:16px;height:16px;display:block}
-  .mobile-cta .mc-quote{background:var(--green);color:#fff !important}
-  body{padding-bottom:80px}
 }
 @media (max-width:680px){
   .testimonial-grid,.card-grid,.card-grid.cols4,.blurb-grid,.offer-grid,.blog-grid,.gallery-grid,.process-grid,.included-grid,.footer-cols{grid-template-columns:1fr}

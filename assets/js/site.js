@@ -91,6 +91,16 @@
       var dots = dotsWrap.children;
       for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('active', d === active);
     }
+    // 1-up (mobile): fit the viewport to the active card so there's no empty
+    // space below short reviews. Multi-up: let cards share the row height.
+    function adjustHeight() {
+      if (pv === 1) {
+        var card = real[((idx % n) + n) % n];
+        if (card) viewport.style.height = card.offsetHeight + 'px';
+      } else {
+        viewport.style.height = '';
+      }
+    }
     function buildDots() {
       if (!dotsWrap) return;
       dotsWrap.innerHTML = '';
@@ -120,7 +130,7 @@
     }
     function goTo(i) {
       if (i === idx) { syncDots(); return; }
-      busy = true; idx = i; place(true); syncDots();
+      busy = true; idx = i; place(true); syncDots(); adjustHeight();
     }
     // auto-play: single card forward
     function step() { if (!busy) goTo(idx + 1); }
@@ -142,6 +152,7 @@
       if (e.target !== track || e.propertyName !== 'transform') return;
       busy = false;
       if (idx >= n) { idx -= n; place(false); syncDots(); }   // wrapped onto clones → snap home
+      adjustHeight();
     });
 
     function start() { stop(); timer = setInterval(step, 5000); }
@@ -159,6 +170,7 @@
       buildDots();
       place(false);
       syncDots();
+      adjustHeight();
     }
     var rt;
     window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(layout, 150); });
