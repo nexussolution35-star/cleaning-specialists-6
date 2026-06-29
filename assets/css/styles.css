@@ -205,8 +205,8 @@ ul{margin:0;padding:0}
 .hero h1 .sub{color:#a7abbd;font-weight:inherit}
 .hero p{color:#fff;font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:500;font-size:14px;line-height:21px;max-width:38em}
 /* hero bullets — single line separated by vertical dividers (Website B style) */
-.hero-sub-claims{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:0 0 2px;font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:500;font-size:14px;line-height:21px;color:#fff}
-.hero-sub-claims span{padding:2px 14px;border-right:1px solid rgba(255,255,255,.3);line-height:1.3}
+.hero-sub-claims{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:0 0 2px;font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;font-weight:700;font-size:14px;line-height:21px;color:#fff}
+.hero-sub-claims span{padding:2px 14px;border-right:2px solid rgba(255,255,255,.6);line-height:1.3}
 .hero-sub-claims span:first-child{padding-left:0}
 .hero-sub-claims span:last-child{border-right:none}
 
@@ -661,9 +661,9 @@ textarea.field{min-height:90px;resize:vertical}
 .footer ul li a::before{content:"\203A";color:var(--green-bright)}
 .footer ul li a:hover{color:var(--green-bright)}
 .fsocial{display:flex;gap:12px;margin-top:16px;list-style:none}
-.fsocial a{width:42px;height:42px;border-radius:50%;border:0;background:var(--green);
+.fsocial a{width:42px;height:42px;border-radius:50%;border:0;background:#2e90e0;
   display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;transition:var(--t-btn)}
-.fsocial a:hover{background:var(--green-bright);transform:translateY(-2px)}
+.fsocial a:hover{background:#52a8ee;transform:translateY(-2px)}
 .fsocial svg{width:21px;height:21px;display:block}
 /* footer link bullets only on the nav lists — not on contact rows or social icons */
 .footer .fcontact li a::before,.footer .fsocial li a::before{content:none}
