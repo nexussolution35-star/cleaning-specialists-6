@@ -114,6 +114,9 @@ ul{margin:0;padding:0}
 .btn-outline:hover{background:var(--navy);color:#fff !important}
 .btn-arrow::after{content:"\2192";font-weight:600;transition:transform .3s ease}
 .btn-arrow:hover::after{transform:translateX(3px)}
+/* paired buttons: flex + gap so they never touch/overlap when they wrap */
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.section-center .btn-row{justify-content:center}
 .btn-lg{padding:15px 36px;font-size:14px}
 
 /* ============================================================
@@ -433,7 +436,7 @@ textarea.field{min-height:90px;resize:vertical}
 
 /* Commitment / "why pick us" — dark contained panel: accordion left, image right
    (team-section width, hero-section radius) */
-.commit-panel{width:var(--content);max-width:1060px;margin:0 auto;
+.commit-panel{width:100%;max-width:1060px;margin:0 auto;
   background:linear-gradient(150deg,#191245 0%,#191245 58%,#143a7a 100%);
   border-radius:var(--r-section);overflow:hidden;color:#fff;
   display:grid;grid-template-columns:1.05fr .95fr;align-items:center}
@@ -571,7 +574,7 @@ textarea.field{min-height:90px;resize:vertical}
 @media(max-width:430px){.proc-grid{grid-template-columns:1fr}}
 
 /* OFFERS — bold green-gradient CTA panel over the team photo (single offer) */
-.offer-cta{width:var(--content);max-width:1080px;margin:0 auto;
+.offer-cta{width:100%;max-width:1060px;margin:0 auto;
   border-radius:var(--r-section);overflow:hidden;box-shadow:var(--shadow-panel);
   background-image:linear-gradient(120deg,rgba(38,80,9,.95) 0%,rgba(70,135,18,.9) 45%,rgba(88,166,24,.64) 100%),url("../images/offer-team.jpg");
   background-size:cover;background-position:center 28%;background-attachment:fixed;
