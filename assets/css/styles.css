@@ -194,7 +194,7 @@ ul{margin:0;padding:0}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:7px;background:transparent;
   border:2px solid rgba(255,255,255,.92);color:#fff;
-  border-radius:50px;font-style:normal;font-weight:500;font-size:10px;line-height:17px;letter-spacing:normal;
+  border-radius:50px;font-style:normal;font-weight:700;font-size:10px;line-height:17px;letter-spacing:normal;
   padding:5px 14px 5px 11px;text-transform:none;margin-bottom:20px;
   font-family:'Open Sans',Helvetica,Arial,Lucida,sans-serif;
 }
@@ -671,10 +671,10 @@ textarea.field{min-height:90px;resize:vertical}
 .footer .fcontact li{margin-bottom:11px}
 .footer .fcontact li a{align-items:center;gap:11px;font-weight:600;color:#fff}
 .fcontact .fc-ico{display:inline-flex;align-items:center;justify-content:center;
-  width:30px;height:30px;border-radius:50%;background:var(--green);flex-shrink:0}
-.fcontact .fc-ico svg{width:15px;height:15px;display:block;color:#fff}
+  width:30px;height:30px;border-radius:50%;background:#fff;flex-shrink:0}
+.fcontact .fc-ico svg{width:15px;height:15px;display:block;color:var(--navy)}
 .footer .fcontact li a:hover{color:var(--green-bright)}
-.footer .fcontact li a:hover .fc-ico{background:var(--green-bright)}
+.footer .fcontact li a:hover .fc-ico svg{color:var(--green-hover)}
 .footer-membership{text-align:left;padding:30px 0 0}
 .footer-membership img{max-width:330px;width:100%;margin:12px 0 0}
 .footer-bottom{text-align:center;padding:22px 0;margin-top:30px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--muted-2)}
