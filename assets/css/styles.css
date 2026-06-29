@@ -312,7 +312,8 @@ textarea.field{min-height:90px;resize:vertical}
    so the JS pixel-shift (page * viewport width) stays exact regardless of gap */
 .rev-slide{flex:0 0 33.3333%;box-sizing:border-box;padding:0 12px;display:flex}
 .rev-card{flex:1;box-sizing:border-box;background:#fff;border-radius:var(--r-card);
-  box-shadow:var(--shadow-card);padding:34px 30px;text-align:center;border:2px solid transparent}
+  box-shadow:var(--shadow-card);padding:34px 30px;text-align:center;border:2px solid transparent;
+  display:flex;flex-direction:column;justify-content:center}
 .rev-source{display:block;width:38px;height:38px;margin:0 auto 14px}
 .rev-source svg{width:38px;height:38px;display:block}
 .rev-stars{color:#fbbc05;font-size:17px;letter-spacing:2px;margin-bottom:14px}
@@ -369,10 +370,10 @@ textarea.field{min-height:90px;resize:vertical}
 }
 /* mobile: 1-up */
 @media(max-width:700px){
-  .rev-slide{flex-basis:100%;padding:0 6px}
-  .rev-card{padding:30px 24px}
-  .review-carousel{padding:0 44px}
-  .carousel-arrow{width:36px;height:36px;font-size:21px}
+  .rev-slide{flex-basis:100%;padding:0 4px}
+  .rev-card{padding:30px 22px}
+  .review-carousel{padding:0 26px}
+  .carousel-arrow{width:34px;height:34px;font-size:20px}
   .review-links{flex-direction:column;align-items:stretch}
 }
 .testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -750,18 +751,25 @@ textarea.field{min-height:90px;resize:vertical}
   .review-badge .rb-score{font-size:14px;gap:5px}
   .review-badge .rb-stars{font-size:11px;letter-spacing:1px}
   .review-badge .rb-label{font-size:11px}
-  /* floating bottom action bar */
-  .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;
-    background:#fff;box-shadow:0 -4px 18px rgba(0,0,0,.16)}
-  .mobile-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
-    padding:15px 10px;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;line-height:1}
+  /* floating bottom action bar — a centred, rounded pill, not edge-to-edge */
+  .mobile-cta{display:flex;position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;
+    width:calc(100% - 28px);max-width:440px;background:#fff;border-radius:var(--r-pill);
+    overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.26)}
+  .mobile-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+    padding:13px 8px;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;line-height:1}
   .mobile-cta .mc-call{color:var(--navy) !important}
-  .mobile-cta .mc-call svg{width:17px;height:17px;display:block}
+  .mobile-cta .mc-call svg{width:16px;height:16px;display:block}
   .mobile-cta .mc-quote{background:var(--green);color:#fff !important}
-  body{padding-bottom:60px}
+  body{padding-bottom:80px}
 }
 @media (max-width:680px){
-  .testimonial-grid,.card-grid,.card-grid.cols4,.svc-grid,.blurb-grid,.offer-grid,.blog-grid,.gallery-grid,.process-grid,.included-grid,.footer-cols{grid-template-columns:1fr}
+  .testimonial-grid,.card-grid,.card-grid.cols4,.blurb-grid,.offer-grid,.blog-grid,.gallery-grid,.process-grid,.included-grid,.footer-cols{grid-template-columns:1fr}
+  /* services stay two-up on mobile (compact cards) */
+  .svc-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .svc-body{padding:14px}
+  .svc-title{font-size:14px;margin-top:14px;line-height:1.25}
+  .svc-badge{width:40px;height:40px;margin-top:-34px}
+  .svc-badge svg{width:19px;height:19px}
   .lead-form .grid2{grid-template-columns:1fr}
   .hero-content{padding:40px 28px}
 }
