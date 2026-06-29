@@ -184,12 +184,12 @@ ul{margin:0;padding:0}
 .hero-panel{
   position:relative;border-radius:var(--r-section);overflow:hidden;z-index:10;
   box-shadow:var(--shadow-panel);
-  background-image:linear-gradient(90deg,rgba(25,18,69,.9) 1%,#191245 17%,#191245 38%,rgba(0,91,187,.55) 100%),url("../images/hero-banner.png");
+  background-image:linear-gradient(90deg,rgba(20,15,55,.60) 0%,rgba(20,15,55,.30) 45%,rgba(0,91,187,.06) 100%),url("../images/hero-banner.png");
   background-size:cover;background-position:right 35% center;
   width:var(--content);max-width:var(--content-max);margin:0 auto;
   display:grid;grid-template-columns:3fr 2fr;min-height:560px;
 }
-.hero-content{padding:64px 56px;color:#fff;align-self:center}
+.hero-content{padding:64px 56px;color:#fff;align-self:center;text-shadow:0 2px 16px rgba(8,6,26,.6)}
 /* thin white outline badge with a small green shield icon (head-office style) */
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:7px;background:transparent;
@@ -652,7 +652,7 @@ textarea.field{min-height:90px;resize:vertical}
 .footer{background:var(--navy-footer);color:#fff;padding:50px 0 0}
 .footer .wrap{max-width:var(--maxw)}
 .footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
-.footer h4{color:var(--blue);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;font-size:15px;margin-bottom:18px}
+.footer h4{color:var(--green-bright);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;font-size:15px;margin-bottom:18px}
 .footer img.flogo{width:170px;margin-bottom:18px}
 .footer p{color:rgba(255,255,255,.75);font-size:14px;line-height:1.8}
 .footer ul{list-style:none}
@@ -660,13 +660,23 @@ textarea.field{min-height:90px;resize:vertical}
 .footer ul li a{color:rgba(255,255,255,.78);font-size:14px;display:flex;gap:8px;align-items:center}
 .footer ul li a::before{content:"\203A";color:var(--green-bright)}
 .footer ul li a:hover{color:var(--green-bright)}
-.fsocial{display:flex;gap:12px;margin-top:14px;list-style:none}
-.fsocial a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
-  display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px}
-.fsocial a:hover{background:var(--green);border-color:var(--green)}
-.fsocial svg{width:17px;height:17px;display:block}
-.footer-membership{text-align:center;padding:36px 0 0}
-.footer-membership img{max-width:900px;width:100%;margin:14px auto 0}
+.fsocial{display:flex;gap:12px;margin-top:16px;list-style:none}
+.fsocial a{width:42px;height:42px;border-radius:50%;border:0;background:var(--green);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;transition:var(--t-btn)}
+.fsocial a:hover{background:var(--green-bright);transform:translateY(-2px)}
+.fsocial svg{width:21px;height:21px;display:block}
+/* footer link bullets only on the nav lists — not on contact rows or social icons */
+.footer .fcontact li a::before,.footer .fsocial li a::before{content:none}
+/* Get In Touch: prominent contact rows with call / email icons */
+.footer .fcontact li{margin-bottom:11px}
+.footer .fcontact li a{align-items:center;gap:11px;font-weight:600;color:#fff}
+.fcontact .fc-ico{display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;background:var(--green);flex-shrink:0}
+.fcontact .fc-ico svg{width:15px;height:15px;display:block;color:#fff}
+.footer .fcontact li a:hover{color:var(--green-bright)}
+.footer .fcontact li a:hover .fc-ico{background:var(--green-bright)}
+.footer-membership{text-align:left;padding:30px 0 0}
+.footer-membership img{max-width:330px;width:100%;margin:12px 0 0}
 .footer-bottom{text-align:center;padding:22px 0;margin-top:30px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--muted-2)}
 
 /* local links chips (city/SEO interlinking) */
@@ -684,9 +694,12 @@ textarea.field{min-height:90px;resize:vertical}
 }
 
 .link-chips{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.link-chips a{border:2px solid var(--navy);color:var(--navy) !important;border-radius:var(--r-pill);
+.link-chips a{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--navy);color:var(--navy) !important;border-radius:var(--r-pill);
   padding:10px 22px;font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;transition:var(--t-btn)}
 .link-chips a:hover{background:var(--navy);color:#fff !important}
+.link-chips .chip-pin{display:inline-flex;align-items:center;color:var(--green);flex-shrink:0}
+.link-chips .chip-pin svg{width:15px;height:15px;display:block}
+.link-chips a:hover .chip-pin{color:var(--green-bright)}
 /* link chips inside a dark panel invert */
 .panel-dark .link-chips a,.text-white .link-chips a{border-color:rgba(255,255,255,.6);color:#fff !important}
 .panel-dark .link-chips a:hover,.text-white .link-chips a:hover{background:#fff;color:var(--navy) !important;border-color:#fff}
@@ -709,7 +722,7 @@ textarea.field{min-height:90px;resize:vertical}
   h1{font-size:29px}h2{font-size:24px}h3{font-size:21px}h4{font-size:17px}
   .section-center > h2,.about-banner-title,.reviews-score{font-size:28px;line-height:1.3}
   .svc-grid{grid-template-columns:repeat(2,1fr);max-width:none}
-  .hero-panel{grid-template-columns:1fr;background-image:linear-gradient(90deg,rgba(25,18,69,.92),#191245 60%,rgba(0,91,187,.5)),url("../images/hero-banner-mobile.png")}
+  .hero-panel{grid-template-columns:1fr;background-image:linear-gradient(90deg,rgba(20,15,55,.72),rgba(20,15,55,.55) 60%,rgba(0,91,187,.22)),url("../images/hero-banner-mobile.png")}
   .hero h1{font-size:40px;line-height:44px;width:100%}
   .hero-form-col{padding:0 40px 40px}
   .split,.split.reverse .split-img{grid-template-columns:1fr}
