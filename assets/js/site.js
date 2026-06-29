@@ -21,6 +21,32 @@
     });
   }
 
+  // Desktop "Services" dropdown — click the parent to open the menu instead of
+  // navigating away (hover still opens it too).
+  document.querySelectorAll('.nav .has-sub > a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var li = a.parentElement;
+      var wasOpen = li.classList.contains('open');
+      document.querySelectorAll('.nav .has-sub.open').forEach(function (o) { o.classList.remove('open'); });
+      if (!wasOpen) li.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.nav .has-sub')) {
+      document.querySelectorAll('.nav .has-sub.open').forEach(function (o) { o.classList.remove('open'); });
+    }
+  });
+
+  // Mobile menu "Services" accordion
+  document.querySelectorAll('.m-sub-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var li = btn.parentElement;
+      var open = li.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(function (q) {
     q.addEventListener('click', function () {
