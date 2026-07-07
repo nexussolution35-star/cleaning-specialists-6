@@ -48,7 +48,7 @@ Design, layout and branding untouched — all changes are content/meta/structure
 
 ## Resolved since first pass
 - **Street address & geo** — both branches now in LocalBusiness schema (Nelspruit: 54 Bester St, Sonhewel Central wording per client: "54 Bester St, Sonheuwel Central, Mbombela, 1200" with geo -25.451960, 30.975362; Highveld branch as `department`: "35 Wes St, Middelburg, 1055" with geo -25.712693, 29.445419). Addresses also shown visibly on the Contact page for NAP consistency.
-- **Title lengths** — every title on the site is now ≤ 60 characters (0 over). The 13 keyword-map pages keep keyword-first + brand suffix (location shortened to the primary town where both wouldn't fit); legacy Mbombela/Emalahleni + pre-occupational pages kept their full location wording and dropped the brand suffix instead (location is never stripped); long blog headlines dropped the suffix.
+- **Title lengths** — every title on the site is now ≤ 60 characters (0 over), 0 duplicates. Strategy (revised after region-bias review): sitewide service pages use the region-neutral "«Keyword» Services | The Cleaning Specialists" pattern (the "services" modifier itself carries real secondary volume, e.g. deep cleaning services 418, mattress cleaning services 444) — no single town is favoured on pages that serve both regions; the homepage carries BOTH towns ("The Cleaning Specialists | Nelspruit & Highveld Cleaning"); town/area pages keep their own town; legacy Mbombela/Emalahleni + pre-occupational pages kept full location wording and dropped the brand suffix instead (location never stripped); long blog headlines dropped the suffix. Verified: no sitewide page carries a single-region title, and every Highveld page still says Highveld.
 - **Visible breadcrumbs** — added: a quiet one-line trail above the page-hero eyebrow (Home › Page; Home › Blog › Article on posts), current page in brand green, mirrors the BreadcrumbList schema exactly. Not on the homepage/PPC. Easy to revert if unwanted.
 
 ## Still flagged
@@ -60,7 +60,7 @@ Design, layout and branding untouched — all changes are content/meta/structure
 ## Per-page table
 | URL | Primary keyword | Title (chars) | Desc chars | Canonical self-ref | Schema | Local content |
 |---|---|---|---|---|---|---|
-| `/` | cleaning services (+ Nelspruit & Highveld) | The Cleaning Specialists \| Cleaning Services Nelspruit (54) | 161 | yes | FAQPage+LocalBusiness | n/a |
+| `/` | cleaning services (+ Nelspruit & Highveld) | The Cleaning Specialists \| Nelspruit & Highveld Cleaning (56) | 161 | yes | FAQPage+LocalBusiness | n/a |
 | `/about/` | - | About Us - The Cleaning Specialists (35) | 128 | yes | BreadcrumbList | n/a |
 | `/blog/` | - | Blog - The Cleaning Specialists (31) | 107 | yes | BreadcrumbList | n/a |
 | `/blog/dirty-solar-panels-cost-you-output/` | - | Dirty Solar Panels Are Costing You Output (41) | 114 | yes | BreadcrumbList | n/a |
@@ -69,7 +69,7 @@ Design, layout and branding untouched — all changes are content/meta/structure
 | `/blog/why-a-clean-restroom-protects-your-business/` | - | Why a Clean Restroom Protects Your Business (43) | 111 | yes | BreadcrumbList | n/a |
 | `/carpet-upholstery-cleaning/` | carpet upholstery cleaning | Carpet & Upholstery Cleaning \| The Cleaning Specialists (55) | 105 | yes | BreadcrumbList+Service | n/a |
 | `/ceiling-high-level-cleaning/` | - | Ceiling & High-Level Cleaning - The Cleaning Specialists (56) | 99 | yes | BreadcrumbList+Service | n/a |
-| `/cleaning/` | cleaning services | All Cleaning Services Nelspruit \| The Cleaning Specialists (58) | 130 | yes | BreadcrumbList+Service | n/a |
+| `/cleaning/` | cleaning services | All Cleaning Services \| The Cleaning Specialists (48) | 130 | yes | BreadcrumbList+Service | n/a |
 | `/cleaning-services-hazyview/` | - | Cleaning Services Hazyview - The Cleaning Specialists (53) | 145 | yes | BreadcrumbList+FAQPage+Service | unique local content + 3 FAQs |
 | `/cleaning-services-highveld/` | - | Cleaning Services Highveld - The Cleaning Specialists (53) | 93 | yes | BreadcrumbList+FAQPage+Service | unique local content + 3 FAQs |
 | `/cleaning-services-highveld-ppc/` | - | Cleaning Services Highveld PPC - The Cleaning Specialists (57) | 112 | yes | noindex | n/a |
@@ -81,32 +81,32 @@ Design, layout and branding untouched — all changes are content/meta/structure
 | `/commercial-cleaning/` | commercial cleaning services | Commercial Cleaning Services \| The Cleaning Specialists (55) | 124 | yes | BreadcrumbList+Service | n/a |
 | `/contact/` | - | Contact - The Cleaning Specialists (34) | 134 | yes | BreadcrumbList+LocalBusiness | n/a |
 | `/curtain-fabric-cleaning/` | - | Curtain & Fabric Cleaning - The Cleaning Specialists (52) | 74 | yes | BreadcrumbList+Service | n/a |
-| `/deep-cleaning/` | deep cleaning | Deep Cleaning Services Nelspruit \| The Cleaning Specialists (59) | 130 | yes | BreadcrumbList+Service | n/a |
+| `/deep-cleaning/` | deep cleaning | Deep Cleaning Services \| The Cleaning Specialists (49) | 130 | yes | BreadcrumbList+Service | n/a |
 | `/deep-cleaning-mbombela-emalahleni/` | - | Deep Cleaning Mbombela Emalahleni - The Cleaning Specialists (60) | 93 | yes | BreadcrumbList+Service | n/a |
 | `/disinfecting-sanitising/` | - | Disinfecting & Sanitisation - The Cleaning Specialists (54) | 95 | yes | BreadcrumbList+Service | n/a |
 | `/domestic-cleaning/` | domestic cleaning services | Domestic Cleaning Services \| The Cleaning Specialists (53) | 125 | yes | BreadcrumbList+Service | n/a |
 | `/fabric-material-cleaning-mbombela-emalahleni/` | - | Fabric & Material Cleaning Mbombela Emalahleni (46) | 94 | yes | BreadcrumbList+Service | n/a |
 | `/gallery/` | - | Gallery - The Cleaning Specialists (34) | 103 | yes | BreadcrumbList | n/a |
-| `/gutter-cleaning/` | gutter cleaning | Gutter Cleaning Nelspruit \| The Cleaning Specialists (52) | 94 | yes | BreadcrumbList+Service | n/a |
+| `/gutter-cleaning/` | gutter cleaning | Gutter Cleaning Services \| The Cleaning Specialists (51) | 94 | yes | BreadcrumbList+Service | n/a |
 | `/gutter-cleaning-mbombela-emalahleni/` | - | Gutter Cleaning Mbombela Emalahleni (35) | 77 | yes | BreadcrumbList+Service | n/a |
 | `/hygiene/` | - | Hygiene - The Cleaning Specialists (34) | 131 | yes | BreadcrumbList+Service | n/a |
 | `/hygiene-services-highveld/` | - | Hygiene Services Highveld - The Cleaning Specialists (52) | 139 | yes | BreadcrumbList+Service | n/a |
 | `/hygiene-services-nelspruit/` | - | Hygiene Services Nelspruit - The Cleaning Specialists (53) | 148 | yes | BreadcrumbList+Service | n/a |
 | `/kitchen-canopy-grease-trap-cleaning/` | grease trap cleaning | Grease Trap & Canopy Cleaning \| The Cleaning Specialists (56) | 109 | yes | BreadcrumbList+Service | n/a |
-| `/mattress-cleaning/` | mattress cleaning | Mattress Cleaning Nelspruit \| The Cleaning Specialists (54) | 82 | yes | BreadcrumbList+Service | n/a |
+| `/mattress-cleaning/` | mattress cleaning | Mattress Cleaning Services \| The Cleaning Specialists (53) | 82 | yes | BreadcrumbList+Service | n/a |
 | `/pre-occupational-cleaning-highveld/` | - | Pre-occupational Cleaning Highveld (34) | 118 | yes | BreadcrumbList+Service | n/a |
 | `/pre-occupational-cleaning-mbombela-emalahleni/` | - | Pre-occupational Cleaning Mbombela Emalahleni (45) | 115 | yes | BreadcrumbList+Service | n/a |
 | `/pre-occupational-cleaning-nelspruit/` | - | Pre-occupational Cleaning Nelspruit (35) | 90 | yes | BreadcrumbList+Service | n/a |
 | `/pre-post-occupational-cleaning/` | - | Pre & Post-Occupational Cleaning - The Cleaning Specialists (59) | 88 | yes | BreadcrumbList+Service | n/a |
 | `/service-areas/` | - | Service Areas - The Cleaning Specialists (40) | 136 | yes | BreadcrumbList | n/a |
 | `/sitemap/` | - | Sitemap - The Cleaning Specialists (34) | 53 | yes | BreadcrumbList | n/a |
-| `/solar-panel-cleaning/` | solar panel cleaning | Solar Panel Cleaning Nelspruit \| The Cleaning Specialists (57) | 101 | yes | BreadcrumbList+Service | n/a |
+| `/solar-panel-cleaning/` | solar panel cleaning | Solar Panel Cleaning Services \| The Cleaning Specialists (56) | 101 | yes | BreadcrumbList+Service | n/a |
 | `/solar-panel-cleaning-mbombela-emalahleni/` | - | Solar Panel Cleaning Mbombela Emalahleni (40) | 70 | yes | BreadcrumbList+Service | n/a |
 | `/success/` | - | Success - The Cleaning Specialists (34) | 42 | yes | BreadcrumbList | n/a |
 | `/success-highveld/` | - | Success Highveld - The Cleaning Specialists (43) | 51 | yes | BreadcrumbList | n/a |
 | `/success-nelspruit/` | - | Success Nelspruit - The Cleaning Specialists (44) | 52 | yes | BreadcrumbList | n/a |
 | `/surface-cleaning-mbombela-emalahleni/` | - | Surface Cleaning Mbombela Emalahleni (36) | 90 | yes | BreadcrumbList+Service | n/a |
 | `/surface-general-cleaning/` | general cleaning services | General Cleaning Services \| The Cleaning Specialists (52) | 88 | yes | BreadcrumbList+Service | n/a |
-| `/window-cleaning/` | window cleaning | Window Cleaning Nelspruit \| The Cleaning Specialists (52) | 103 | yes | BreadcrumbList+Service | n/a |
+| `/window-cleaning/` | window cleaning | Window Cleaning Services \| The Cleaning Specialists (51) | 103 | yes | BreadcrumbList+Service | n/a |
 | `/window-solar-cleaning/` | window and solar cleaning (overview only) | Window & Solar Cleaning \| The Cleaning Specialists (50) | 109 | yes | BreadcrumbList+Service | n/a |
 
