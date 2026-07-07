@@ -201,6 +201,15 @@ ul{margin:0;padding:0}
   background:linear-gradient(115deg,#191245 0%,#191245 52%,#0b3f8c 100%);
   padding:62px 40px !important}
 .page-hero .wrap{max-width:780px}
+/* breadcrumb trail — quiet single line above the eyebrow, mirrors schema */
+.crumbs{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;
+  font-family:'Open Sans',sans-serif;font-size:12px;line-height:1.4;margin-bottom:16px;
+  color:rgba(255,255,255,.7)}
+.crumbs a{color:rgba(255,255,255,.85)}
+.crumbs a:hover{color:var(--green-bright)}
+.crumbs .sep{opacity:.55}
+.crumbs .cur{color:var(--green-bright);font-weight:600;max-width:26em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hero-panel{
   position:relative;border-radius:var(--r-section);overflow:hidden;z-index:10;
   box-shadow:var(--shadow-panel);
